@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using Eigene_Bank_DLL_Assembly;
 
 namespace BankClient
 {
@@ -19,9 +8,33 @@ namespace BankClient
     /// </summary>
     public partial class Login : Window
     {
+
         public Login()
         {
             InitializeComponent();
+        }
+
+        private void einloggen(object sender, RoutedEventArgs e)
+        {
+            //öffne Kontoverwaltungsfenster und hole mit eingegebenen Daten getCustomer
+            BankManagement Bank = new BankManagement();
+            GlobalVariables global = new GlobalVariables();
+            //Hier noch auf fehler Prüfen!!
+            string _vorname = Vorname.Text;
+            string _nachname = Nachname.Text;
+            string _birth = Geburtsdatum.Text;
+
+            global.setCustID(Bank.getCustomer(_vorname, _nachname, _birth));
+
+            Startseite main = new Startseite();
+            this.Close();
+            main.ShowDialog();
+        }
+        private void zurück(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.ShowDialog();
         }
     }
 }

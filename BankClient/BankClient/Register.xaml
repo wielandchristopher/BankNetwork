@@ -5,8 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="Register" Height="300" Width="300">
+        Title="Register" Height="400" Width="400">
     <Grid>
-        
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="9,0,0,339" TextWrapping="Wrap" Text="Geben Sie bitte Ihren Vornamen ein: " VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte Ihren "/><Run Text="Nach"/><Run Text="namen ein: "/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217"><Run Text="Geben Sie bitte Ihr"/><Run Text=" Geburtsdatum"/><Run Text=" "/><Run Text="ein: "/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="9,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte Ihre "/><Run Text="Adresse "/><Run Text="ein: "/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="10,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte Ihren "/><Run Text="Wohnort "/><Run Text="ein: "/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="10,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte "/><Run Text="Ihre Telefonnumer "/><Run Text="ein: "/></TextBlock>
+        <Button x:Name="register" Content="Registrieren!" Click="registrieren" HorizontalAlignment="Left" Margin="40,325,0,0" VerticalAlignment="Top" Width="123" Height="37"/>
+        <Button x:Name="back" Content="Zurück" Click="zurück" Margin="230,325,40.6,0" VerticalAlignment="Top" Height="37"/>
+        <TextBox x:Name="Vorname" HorizontalAlignment="Left" Height="23" Margin="9,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Nachname" HorizontalAlignment="Left" Height="23" Margin="10,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Geburtsdatum" HorizontalAlignment="Left" Height="23" Margin="10,131,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Adresse" HorizontalAlignment="Left" Height="23" Margin="10,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Wohnort" HorizontalAlignment="Left" Height="23" Margin="10,229,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="Telefonnummer" HorizontalAlignment="Left" Height="23" Margin="10,278,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
     </Grid>
 </Window>

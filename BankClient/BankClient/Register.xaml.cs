@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using Eigene_Bank_DLL_Assembly;
 
 namespace BankClient
 {
@@ -22,6 +11,30 @@ namespace BankClient
         public Register()
         {
             InitializeComponent();
+        }
+        private void registrieren(object sender, RoutedEventArgs e)
+        {
+            BankManagement Bank = new BankManagement();
+
+            //Hier noch auf fehler Prüfen!!
+            string _vorname = Vorname.Text;
+            string _nachname = Nachname.Text;
+            string _birth = Geburtsdatum.Text;
+            string _adresse = Adresse.Text;
+            string _wohnort = Wohnort.Text;
+            string _telefonnummer = Telefonnummer.Text;
+
+            Bank.createCustomer(_vorname, _nachname, _birth, _adresse, _wohnort, _telefonnummer);
+
+            Register_sucess regsuc = new Register_sucess();
+            this.Close();
+            regsuc.ShowDialog();
+        }
+        private void zurück(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.ShowDialog();
         }
     }
 }
