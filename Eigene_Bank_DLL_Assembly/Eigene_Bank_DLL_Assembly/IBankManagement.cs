@@ -27,6 +27,7 @@ namespace Eigene_Bank_DLL_Assembly
         void addSavingsAccountUser(int _sNumber, int _id);
         void addCreditAccountUser(int _cNumber, int _id);
         int getBankAccountNumber(int _id, int _whichAccount);
+        string getAccType(int Accnumber);
 
         // Währungsmodul und Kontoauszug
         void createBankStatement(int _accNumber);

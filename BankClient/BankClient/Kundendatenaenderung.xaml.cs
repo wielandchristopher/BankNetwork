@@ -8,13 +8,15 @@ namespace BankClient
     /// </summary>
     public partial class Kundendatenaenderung : Window
     {
+        GlobalVariables global = new GlobalVariables();
+        BankManagement Bank = new BankManagement();
+
         public Kundendatenaenderung()
         {
             InitializeComponent();
         }
         private void Logout(object sender, RoutedEventArgs e)
         {
-            GlobalVariables global = new GlobalVariables();
             global.setCustID(0);
 
             MainWindow main = new MainWindow();
@@ -31,9 +33,6 @@ namespace BankClient
 
         private void aendern(object sender, RoutedEventArgs e)
         {
-            BankManagement Bank = new BankManagement();
-            GlobalVariables global = new GlobalVariables();
-
             int user = global.getCustID();
 
             string _vorname = Vorname.Text;

@@ -8,14 +8,14 @@ namespace BankClient
     /// </summary>
     public partial class Register : Window
     {
+        BankManagement Bank = new BankManagement();
+
         public Register()
         {
             InitializeComponent();
         }
         private void registrieren(object sender, RoutedEventArgs e)
         {
-            BankManagement Bank = new BankManagement();
-
             //Hier noch auf fehler Prüfen!!
             string _vorname = Vorname.Text;
             string _nachname = Nachname.Text;

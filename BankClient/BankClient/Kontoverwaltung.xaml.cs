@@ -18,13 +18,19 @@ namespace BankClient
 
             int _id = global.getCustID();
             if (Bank.getBankAccountNumber(_id, 1) != 0) {
-                for (int i = 1; i != 5; i++)
+                for (int i = 1; i != 6; i++)
                 {
                     int Kontonummer = Bank.getBankAccountNumber(_id, i);
                     
                     Button b = new Button();
-                    
-                    b.Content = "Kreditkonto: " + Kontonummer;
+                    //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
+                    //{
+                        b.Content = "Kreditkonto: " + Kontonummer;
+                    //}
+                    //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
+                    //{
+                    //    b.Content = "Sparkonto: " + Kontonummer;
+                    //}
                     b.Click += new RoutedEventHandler(CreditAccountsettings);
 
                     ListBoxItem item = new ListBoxItem();
@@ -51,13 +57,22 @@ namespace BankClient
 
         void CreditAccountsettings(object sender, RoutedEventArgs e)
         {
+            
+            
             //Neues Fenster für Überweisungen etc.
-            MessageBox.Show("Credit Clicked");
+            //MessageBox.Show("Credit Clicked");
+            CreditAccActions Konto = new CreditAccActions();
+            this.Close();
+            Konto.ShowDialog();
         }
+
         void DepositAccountsettings(object sender, RoutedEventArgs e)
         {
-            //Neues Fenster für Sparen etc.
-            MessageBox.Show("Deposit Clicked");
+
+
+            DepositAccActions Konto = new DepositAccActions();
+            this.Close();
+            Konto.ShowDialog();
         }
 
         private void NewCreditAcc_Click(object sender, RoutedEventArgs e)
@@ -68,9 +83,7 @@ namespace BankClient
             global.setCreditAccnumber(Bank.createCreditAccount(_id));
 
             //Hinzufügen des neuen KreditKontos in die Listbox
-            string Kntnr = global.getCreditAccnumber().ToString();
             Button button = new Button();
-            button.Content = "Kreditkonto: " + Kntnr;
             button.Click += new RoutedEventHandler(CreditAccountsettings);
 
             ListBoxItem itm = new ListBoxItem();
@@ -80,6 +93,7 @@ namespace BankClient
             this.Close();
             Konto.ShowDialog();
         }
+
         private void NewDepositAcc_Click(object sender, RoutedEventArgs e)
         {
             int _id = global.getCustID();
@@ -88,9 +102,7 @@ namespace BankClient
             global.setDepositAccnumber(Bank.createSavingsAccount(_id));
 
             //Hinzufügen des neuen KreditKontos in die Listbox
-            string Kntnr = global.getDepositAccnumber().ToString();
             Button button = new Button();
-            button.Content = "Sparkonto: " + Kntnr;
             button.Click += new RoutedEventHandler(DepositAccountsettings);
 
             ListBoxItem itm = new ListBoxItem();

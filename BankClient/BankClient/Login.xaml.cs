@@ -8,6 +8,8 @@ namespace BankClient
     /// </summary>
     public partial class Login : Window
     {
+        BankManagement Bank = new BankManagement();
+        GlobalVariables global = new GlobalVariables();
 
         public Login()
         {
@@ -16,9 +18,6 @@ namespace BankClient
 
         private void einloggen(object sender, RoutedEventArgs e)
         {
-            //öffne Kontoverwaltungsfenster und hole mit eingegebenen Daten getCustomer
-            BankManagement Bank = new BankManagement();
-            GlobalVariables global = new GlobalVariables();
             //Hier noch auf fehler Prüfen!!
             string _vorname = Vorname.Text;
             string _nachname = Nachname.Text;

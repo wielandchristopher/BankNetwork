@@ -6,7 +6,7 @@ namespace Eigene_Bank_DLL_Assembly
 {
     public class BankManagement : IBankManagement
     {
-        const string path = "C:\\Users\\christopher.wieland\\Documents\\GitHub\\BankAssembly\\Eigene_Bank_DLL_Assembly\\Eigene_Bank_DLL_Assembly\\Bank.dll";
+        const string path = "C:\\Users\\christopher.wieland\\Documents\\GitHub\\BankNetwork\\Eigene_Bank_DLL_Assembly\\Eigene_Bank_DLL_Assembly\\Bank.dll";
 
         // Schnittstellen Funktionen für Customer Management
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
@@ -78,6 +78,9 @@ namespace Eigene_Bank_DLL_Assembly
 
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
         public static extern int getKontonummer(IntPtr kunde, int whichKonto);
+
+        [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int getAccountType(int Accnumber);
 
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
         public static extern int addSparKontoverfüger(IntPtr sk, IntPtr cust);
@@ -247,6 +250,11 @@ namespace Eigene_Bank_DLL_Assembly
             return accNumber;
         }
 
+        public string getAccType(int Accnumber)
+        {
+            return getAccountType(Accnumber).ToString();
+        }
+
         public void createBankStatement(int _accNumber)
         {
             string fileName = _accNumber + "_Buchungen.txt";
@@ -324,5 +332,7 @@ namespace Eigene_Bank_DLL_Assembly
             }
             Console.WriteLine("************************************************************************************");
         }
+
+        
     }
 }

@@ -35,7 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Eigene_Bank_DLL_Assembly">
+    <Reference Include="Eigene_Bank_DLL_Assembly, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\Eigene_Bank_DLL_Assembly\Eigene_Bank_DLL_Assembly\bin\Debug\Eigene_Bank_DLL_Assembly.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -58,6 +59,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CreditAccActions.xaml.cs">
+      <DependentUpon>CreditAccActions.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DepositAccActions.xaml.cs">
+      <DependentUpon>DepositAccActions.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GlobalVariables.cs" />
     <Compile Include="Kontoverwaltung.xaml.cs">
       <DependentUpon>Kontoverwaltung.xaml</DependentUpon>
@@ -86,6 +93,14 @@
     <Compile Include="Startseite.xaml.cs">
       <DependentUpon>Startseite.xaml</DependentUpon>
     </Compile>
+    <Page Include="CreditAccActions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DepositAccActions.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Kontoverwaltung.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
