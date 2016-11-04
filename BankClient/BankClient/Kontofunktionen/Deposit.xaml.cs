@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using Eigene_Bank_DLL_Assembly;
 
 namespace BankClient
@@ -18,7 +6,7 @@ namespace BankClient
     /// <summary>
     /// Interaktionslogik für Deposit.xaml
     /// </summary>
-    
+
 
     public partial class Deposit : Window
     {
@@ -33,7 +21,8 @@ namespace BankClient
         private void Logout(object sender, RoutedEventArgs e)
         {
             global.setCustID(0);
-
+            global.setDepositAccnumber(0);
+            global.setCreditAccnumber(0);
             MainWindow main = new MainWindow();
             this.Close();
             main.ShowDialog();
@@ -43,12 +32,42 @@ namespace BankClient
         {
             //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
             //{
-            CreditAccActions cKonto = new CreditAccActions();
-            this.Close();
-            cKonto.ShowDialog();
+                  global.setDepositAccnumber(0);
+                  global.setCreditAccnumber(0);
+                  CreditAccActions cKonto = new CreditAccActions();
+                  this.Close();
+                  cKonto.ShowDialog();
             //}
             //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
             //{
+            //    DepositAccActions dKonto = new DepositAccActions();
+            //    this.Close();
+            //    dKonto.ShowDialog();
+            //}
+        }
+
+        private void einzahlen(object sender, RoutedEventArgs e)
+        {
+            string betr = Betrag.Text;
+            string verwe = Verwendung.Text;
+            double betrag = double.Parse(betr, System.Globalization.CultureInfo.InvariantCulture);
+
+            //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
+            //{
+                 int Kntnumber = global.getCreditAccnumber();
+                 Bank.depositCreditAcc(Kntnumber, verwe, betrag);
+                 MessageBox.Show("Der Betrag wurde erfolgreich eingezahlt");
+                 global.setCreditAccnumber(0);
+                 CreditAccActions cKonto = new CreditAccActions();
+                 this.Close();
+                 cKonto.ShowDialog();
+            //}
+            //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
+            //{
+            //    int Kntnumber = global.getDepositAccnumber();
+            //    Bank.depositSavingsAcc(Kntnumber, verwe, betrag);
+            //    MessageBox.Show("Der Betrag wurde erfolgreich eingezahlt");
+            //    global.setDepositAccnumber(0);
             //    DepositAccActions dKonto = new DepositAccActions();
             //    this.Close();
             //    dKonto.ShowDialog();

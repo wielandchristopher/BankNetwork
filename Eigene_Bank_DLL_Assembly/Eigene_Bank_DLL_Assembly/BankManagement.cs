@@ -6,7 +6,7 @@ namespace Eigene_Bank_DLL_Assembly
 {
     public class BankManagement : IBankManagement
     {
-        const string path = "C:\\Users\\christopher.wieland\\Documents\\GitHub\\BankNetwork\\Eigene_Bank_DLL_Assembly\\Eigene_Bank_DLL_Assembly\\Bank.dll";
+        const string path = "C:\\Users\\wiela\\Documents\\GitHub\\BankNetwork\\Eigene_Bank_DLL_Assembly\\Eigene_Bank_DLL_Assembly\\Bank.dll";
 
         // Schnittstellen Funktionen für Customer Management
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]

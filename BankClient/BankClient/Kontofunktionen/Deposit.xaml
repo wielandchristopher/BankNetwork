@@ -9,6 +9,11 @@
     <Grid>
         <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,54,0,0" TextWrapping="Wrap" Text="Geben Sie bitte einen Betrag ein, welcher hinzugebucht werden soll:" VerticalAlignment="Top" Height="23" Width="372"/>
+        <TextBox x:Name="Betrag" HorizontalAlignment="Left" Height="23" Margin="10,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button x:Name="button" Content="Einzahlen" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="141" Height="56" Click="einzahlen"/>
+        <TextBlock x:Name="Usage" HorizontalAlignment="Left" Margin="12,105,0,0" TextWrapping="Wrap" Text="Verwendungszweck:" VerticalAlignment="Top" Height="23" Width="372"/>
+        <TextBox x:Name="Verwendung" HorizontalAlignment="Left" Height="23" Margin="12,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
