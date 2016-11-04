@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="Startseite" Height="300" Width="300">
+        Title="Startseite" Height="400" Width="400">
     <Grid>
-        <Button x:Name="button" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="209,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Kundendaten" Content="Kundendatenverwaltung" Click="Kundendatenaenderung" HorizontalAlignment="Left" Margin="22,48,0,0" VerticalAlignment="Top" Width="142" Height="43"/>
-        <Button x:Name="Konto" Content="Kontoverwaltung" Click="Kontoverwaltung" HorizontalAlignment="Left" Margin="22,121,0,0" VerticalAlignment="Top" Width="142" Height="43"/>
+        <Button x:Name="button" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="Kundendaten" Content="Kundendatenverwaltung" Click="Kundendatenaenderung" HorizontalAlignment="Left" Margin="128,73,0,0" VerticalAlignment="Top" Width="142" Height="43"/>
+        <Button x:Name="Konto" Content="Kontoverwaltung" Click="Kontoverwaltung" HorizontalAlignment="Left" Margin="128,211,0,0" VerticalAlignment="Top" Width="142" Height="43"/>
 
     </Grid>
 </Window>

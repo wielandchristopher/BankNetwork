@@ -11,17 +11,20 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Eigene_Bank_DLL_Assembly;
 
 namespace BankClient
 {
     /// <summary>
-    /// Interaktionslogik für DepositAccActions.xaml
+    /// Interaktionslogik für Bankstatement.xaml
     /// </summary>
-    public partial class DepositAccActions : Window
+
+    public partial class Bankstatement : Window
     {
         GlobalVariables global = new GlobalVariables();
+        BankManagement Bank = new BankManagement();
 
-        public DepositAccActions()
+        public Bankstatement()
         {
             InitializeComponent();
         }
@@ -37,23 +40,18 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
-            Kontoverwaltung main = new Kontoverwaltung();
+            //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
+            //{
+            CreditAccActions cKonto = new CreditAccActions();
             this.Close();
-            main.ShowDialog();
-        }
-
-        private void Statement(object sender, RoutedEventArgs e)
-        {
-            Bankstatement state = new Bankstatement();
-            this.Close();
-            state.ShowDialog();
-        }
-
-        private void Deposit(object sender, RoutedEventArgs e)
-        {
-            Deposit depo = new Deposit();
-            this.Close();
-            depo.ShowDialog();
+            cKonto.ShowDialog();
+            //}
+            //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
+            //{
+            //    DepositAccActions dKonto = new DepositAccActions();
+            //    this.Close();
+            //    dKonto.ShowDialog();
+            //}
         }
     }
 }

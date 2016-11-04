@@ -43,9 +43,10 @@ namespace BankClient
 
             Bank.changeCustomer(user, _vorname, _nachname, _adresse, _wohnort, _telefonnummer);
 
-            Kundendatenaenderung_success Kundendatensuc = new Kundendatenaenderung_success();
+            MessageBox.Show("Die Daten wurden erfolgreich geändert");
+            Startseite main = new Startseite();
             this.Close();
-            Kundendatensuc.ShowDialog();
+            main.ShowDialog();
         }
     }
 }

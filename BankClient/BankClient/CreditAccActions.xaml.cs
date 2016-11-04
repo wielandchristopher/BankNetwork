@@ -44,22 +44,30 @@ namespace BankClient
 
         private void transfer(object sender, RoutedEventArgs e)
         {
-
+            Transfer trans = new Transfer();
+            this.Close();
+            trans.ShowDialog();
         }
 
         private void Withdraw(object sender, RoutedEventArgs e)
         {
-
+            Withdraw with = new Withdraw();
+            this.Close();
+            with.ShowDialog();
         }
 
         private void Deposit(object sender, RoutedEventArgs e)
         {
-
+            Deposit depo = new Deposit();
+            this.Close();
+            depo.ShowDialog();
         }
 
         private void Statement(object sender, RoutedEventArgs e)
         {
-
+            Bankstatement state = new Bankstatement();
+            this.Close();
+            state.ShowDialog();
         }
     }
 }

@@ -57,10 +57,6 @@ namespace BankClient
 
         void CreditAccountsettings(object sender, RoutedEventArgs e)
         {
-            
-            
-            //Neues Fenster für Überweisungen etc.
-            //MessageBox.Show("Credit Clicked");
             CreditAccActions Konto = new CreditAccActions();
             this.Close();
             Konto.ShowDialog();
@@ -68,8 +64,6 @@ namespace BankClient
 
         void DepositAccountsettings(object sender, RoutedEventArgs e)
         {
-
-
             DepositAccActions Konto = new DepositAccActions();
             this.Close();
             Konto.ShowDialog();
@@ -89,9 +83,10 @@ namespace BankClient
             ListBoxItem itm = new ListBoxItem();
             listBox.Items.Add(button);
 
-            newCreditAcc_success Konto = new newCreditAcc_success();
+            MessageBox.Show("Das Kreditkonto wurde erfolgreich angelegt");
+            Kontoverwaltung konto = new Kontoverwaltung();
             this.Close();
-            Konto.ShowDialog();
+            konto.ShowDialog();
         }
 
         private void NewDepositAcc_Click(object sender, RoutedEventArgs e)
@@ -108,9 +103,10 @@ namespace BankClient
             ListBoxItem itm = new ListBoxItem();
             listBox.Items.Add(button);
 
-            newDepositAcc_success Konto = new newDepositAcc_success();
+            MessageBox.Show("Das Kreditkonto wurde erfolgreich angelegt");
+            Kontoverwaltung konto = new Kontoverwaltung();
             this.Close();
-            Konto.ShowDialog();
+            konto.ShowDialog();
         }
     }
 }

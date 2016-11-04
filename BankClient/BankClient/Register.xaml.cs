@@ -26,9 +26,10 @@ namespace BankClient
 
             Bank.createCustomer(_vorname, _nachname, _birth, _adresse, _wohnort, _telefonnummer);
 
-            Register_sucess regsuc = new Register_sucess();
+            MessageBox.Show("Sie wurden erfolgreich registriert");
+            MainWindow main = new MainWindow();
             this.Close();
-            regsuc.ShowDialog();
+            main.ShowDialog();
         }
         private void zurück(object sender, RoutedEventArgs e)
         {

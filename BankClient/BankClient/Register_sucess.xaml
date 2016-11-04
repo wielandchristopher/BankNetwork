@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="Register_sucess" Height="300" Width="300">
+        Title="Register_sucess" Height="400" Width="400">
     <Grid>
         <Button x:Name="button" Content="Zurück zum Start!" Click="zurück" Margin="86,196,86.6,0" VerticalAlignment="Top" Height="37"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="48,92,0,0" TextWrapping="Wrap" Text="Die Registrierung war erfolgreich" VerticalAlignment="Top" Width="190" Height="49"/>

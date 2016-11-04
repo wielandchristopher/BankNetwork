@@ -1,16 +1,14 @@
-﻿<Window x:Class="BankClient.Kontoverwaltung"
+﻿<Window x:Class="BankClient.Deposit"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="Kontoverwaltung" Height="400" Width="400">
+        Title="Deposit" Height="400" Width="400">
     <Grid>
         <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="NewCreditAcc" Content="neues Kreditkonto?" Margin="44,279,0,0" VerticalAlignment="Top" Height="32" Click="NewCreditAcc_Click" HorizontalAlignment="Left" Width="131"/>
-        <Button x:Name="NewDepositAcc" Content="neues Sparkonto?" HorizontalAlignment="Left" Margin="221,279,0,0" VerticalAlignment="Top" Width="131" Height="32" Click="NewDepositAcc_Click"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Margin="60,69,0,0" VerticalAlignment="Top" Width="274"/>
+
     </Grid>
 </Window>
