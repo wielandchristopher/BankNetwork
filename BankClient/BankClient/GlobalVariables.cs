@@ -9,6 +9,8 @@ namespace BankClient
     public class GlobalVariables
     {
         static int custID;
+        static int CreditAccnumber;
+        static int DepositAccnumber;
 
         public int getCustID()
         {
@@ -18,7 +20,22 @@ namespace BankClient
         {
             custID = _ID;
         }
-
+        public int getCreditAccnumber()
+        {
+            return CreditAccnumber;
+        }
+        public void setCreditAccnumber(int number)
+        {
+            CreditAccnumber = number;
+        }
+        public int getDepositAccnumber()
+        {
+            return DepositAccnumber;
+        }
+        public void setDepositAccnumber(int number)
+        {
+            DepositAccnumber = number;
+        }
 
     }
 }

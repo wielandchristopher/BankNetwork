@@ -13,9 +13,6 @@ namespace BankClient
         }
         private void Logout(object sender, RoutedEventArgs e)
         {
-            //Login login = new Login();
-            //login.getCustID();
-
             MainWindow main = new MainWindow();
             this.Close();
             main.ShowDialog();

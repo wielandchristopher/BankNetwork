@@ -14,6 +14,9 @@ namespace BankClient
         }
         private void Logout(object sender, RoutedEventArgs e)
         {
+            GlobalVariables global = new GlobalVariables();
+            global.setCustID(0);
+
             MainWindow main = new MainWindow();
             this.Close();
             main.ShowDialog();

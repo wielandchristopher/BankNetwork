@@ -9,6 +9,8 @@
     <Grid>
         <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="209,10,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="209,240,0,0" VerticalAlignment="Top" Width="75"/>
-
+        <Button x:Name="NewCreditAcc" Content="neues Kreditkonto?" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" Width="131" Height="32" Click="NewCreditAcc_Click"/>
+        <Button x:Name="NewDepositAcc" Content="neues Sparkonto?" HorizontalAlignment="Left" Margin="153,193,0,0" VerticalAlignment="Top" Width="131" Height="32" Click="NewDepositAcc_Click"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Margin="10,48,0,0" VerticalAlignment="Top" Width="274"/>
     </Grid>
 </Window>
