@@ -55,5 +55,19 @@ namespace BankClient
             //    dKonto.ShowDialog();
             //}
         }
+
+        private void transfer(object sender, RoutedEventArgs e)
+        {
+            int zielkonto = int.Parse(zielknt.Text); ;
+            double betrag = double.Parse(Betrag.Text, System.Globalization.CultureInfo.InvariantCulture);
+            int Kntnumber = global.getCreditAccnumber();
+            string verwe = Verwendung.Text;
+
+            Bank.transfer(Kntnumber, zielkonto, verwe, betrag);
+            MessageBox.Show("Der Betrag wurde erfolgreich überwiesen");
+            CreditAccActions cKonto = new CreditAccActions();
+            this.Close();
+            cKonto.ShowDialog();
+        }
     }
 }

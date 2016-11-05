@@ -42,6 +42,8 @@ namespace BankClient
         {
             //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
             //{
+            global.setDepositAccnumber(0);
+            global.setCreditAccnumber(0);
             CreditAccActions cKonto = new CreditAccActions();
             this.Close();
             cKonto.ShowDialog();
@@ -52,6 +54,30 @@ namespace BankClient
             //    this.Close();
             //    dKonto.ShowDialog();
             //}
+        }
+
+        private void auszug(object sender, RoutedEventArgs e)
+        {
+            //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
+            //{
+            int Kntnumber = global.getCreditAccnumber();
+            Bank.createBankStatement(Kntnumber);
+            MessageBox.Show("Der Kontoauszug wurde erstellt");
+            CreditAccActions cKonto = new CreditAccActions();
+            this.Close();
+            cKonto.ShowDialog();
+            //}
+            //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
+            //{
+            //    int Kntnumber = global.getDepositAccnumber();
+            //    Bank.createBankStatement(Kntnumber);
+            //    MessageBox.Show("Der Kontoauszug wurde erstellt");
+            //    global.setDepositAccnumber(0);
+            //    DepositAccActions dKonto = new DepositAccActions();
+            //    this.Close();
+            //    dKonto.ShowDialog();
+            //}
+
         }
     }
 }

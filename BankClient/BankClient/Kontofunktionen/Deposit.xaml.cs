@@ -32,7 +32,6 @@ namespace BankClient
         {
             //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
             //{
-                  global.setDepositAccnumber(0);
                   global.setCreditAccnumber(0);
                   CreditAccActions cKonto = new CreditAccActions();
                   this.Close();
@@ -40,6 +39,7 @@ namespace BankClient
             //}
             //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
             //{
+            //    global.setDepositAccnumber(0);
             //    DepositAccActions dKonto = new DepositAccActions();
             //    this.Close();
             //    dKonto.ShowDialog();
@@ -57,7 +57,6 @@ namespace BankClient
                  int Kntnumber = global.getCreditAccnumber();
                  Bank.depositCreditAcc(Kntnumber, verwe, betrag);
                  MessageBox.Show("Der Betrag wurde erfolgreich eingezahlt");
-                 global.setCreditAccnumber(0);
                  CreditAccActions cKonto = new CreditAccActions();
                  this.Close();
                  cKonto.ShowDialog();

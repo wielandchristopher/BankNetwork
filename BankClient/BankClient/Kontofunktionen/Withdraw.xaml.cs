@@ -39,18 +39,21 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
-            //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
-            //{
-                    CreditAccActions cKonto = new CreditAccActions();
-                    this.Close();
-                    cKonto.ShowDialog();
-            //}
-            //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
-            //{
-            //    DepositAccActions dKonto = new DepositAccActions();
-            //    this.Close();
-            //    dKonto.ShowDialog();
-            //}
+            global.setCreditAccnumber(0);
+            CreditAccActions cKonto = new CreditAccActions();
+            this.Close();
+            cKonto.ShowDialog();
+        }
+
+        private void abbuchen(object sender, RoutedEventArgs e)
+        {
+            double betrag = double.Parse(Betrag.Text, System.Globalization.CultureInfo.InvariantCulture);
+            int Kntnumber = global.getCreditAccnumber();
+            Bank.withdrawCreditAcc(Kntnumber, betrag);
+            MessageBox.Show("Der Betrag wurde erfolgreich abgebucht");
+            CreditAccActions cKonto = new CreditAccActions();
+            this.Close();
+            cKonto.ShowDialog();
         }
     }
 }
