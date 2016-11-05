@@ -90,8 +90,7 @@ namespace BankClient
                 {
                     int Kntnumber = global.getAccnumber();
                     Bank.depositSavingsAcc(Kntnumber, verwe, betrag);
-                    MessageBox.Show("Der Betrag wurde erfolgreich eingezahlt");
-                    global.setAccnumber(0);
+                    MessageBox.Show("Der Betrag wurde erfolgreich eingezahlt");                   
                     DepositAccActions dKonto = new DepositAccActions();
                     this.Close();
                     dKonto.ShowDialog();

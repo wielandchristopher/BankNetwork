@@ -36,18 +36,20 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
-            //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
-            //{
-            CreditAccActions cKonto = new CreditAccActions();
-            this.Close();
-            cKonto.ShowDialog();
-            //}
-            //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
-            //{
-            //    DepositAccActions dKonto = new DepositAccActions();
-            //    this.Close();
-            //    dKonto.ShowDialog();
-            //}
+            int Kontonummer = global.getAccnumber();
+
+            if (Bank.getAccType(Kontonummer) == 1)
+            {
+                CreditAccActions cKonto = new CreditAccActions();
+                this.Close();
+                cKonto.ShowDialog();
+            }
+            else if(Bank.getAccType(Kontonummer) == 0)
+            {
+                DepositAccActions dKonto = new DepositAccActions();
+                this.Close();
+                dKonto.ShowDialog();
+            }
         }
 
         private void transfer(object sender, RoutedEventArgs e)

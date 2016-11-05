@@ -14,7 +14,7 @@ namespace BankClient
         public CreditAccActions()
         {
             InitializeComponent();
-            Kontostandx.Text = Bank.getCreditkontostand(global.getAccnumber()).ToString();
+            Kontostandx.Text = (Bank.getCreditkontostand(global.getAccnumber()).ToString());
         }
 
         private void Zurück(object sender, RoutedEventArgs e)

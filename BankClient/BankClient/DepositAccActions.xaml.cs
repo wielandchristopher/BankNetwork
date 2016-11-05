@@ -14,7 +14,8 @@ namespace BankClient
         public DepositAccActions()
         {
             InitializeComponent();
-            Kontostandx.Text = Bank.getCreditkontostand(global.getAccnumber()).ToString();
+            double i = Bank.getDepositkontostand(global.getAccnumber());
+            Kontostandy.Text = i.ToString();
         }
 
         private void Logout(object sender, RoutedEventArgs e)
