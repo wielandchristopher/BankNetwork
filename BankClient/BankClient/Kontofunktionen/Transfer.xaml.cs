@@ -14,6 +14,12 @@ namespace BankClient
         GlobalVariables global = new GlobalVariables();
         BankManagement Bank = new BankManagement();
 
+        private bool IsNumeric(string value)
+        {
+            double Val = 0;
+            return double.TryParse(value, out Val);
+        }
+
         public Transfer()
         {
             InitializeComponent();
@@ -46,16 +52,31 @@ namespace BankClient
 
         private void transfer(object sender, RoutedEventArgs e)
         {
-            int zielkonto = int.Parse(zielknt.Text); ;
-            double betrag = double.Parse(Betrag.Text, System.Globalization.CultureInfo.InvariantCulture);
-            int Kntnumber = global.getAccnumber();
-            string verwe = Verwendung.Text;
+            if (IsNumeric(zielknt.Text) == false)
+            {
+                MessageBox.Show("Die Kontonummer muss aus Zahlen bestehen");
+            }
+            else if (IsNumeric(Betrag.Text) == false)
+            {
+                MessageBox.Show("Der Betrag muss aus Zahlen bestehen");
+            }
+            else if (IsNumeric(Verwendung.Text) == true)
+            {
+                MessageBox.Show("Geben Sie für den Verwendungszweck bitte einen Text ein");
+            }
+            else
+            {
+                int zielkonto = int.Parse(zielknt.Text);
+                double betrag = double.Parse(Betrag.Text, System.Globalization.CultureInfo.InvariantCulture);
+                int Kntnumber = global.getAccnumber();
+                string verwe = Verwendung.Text;
 
-            Bank.transfer(Kntnumber, zielkonto, verwe, betrag);
-            MessageBox.Show("Der Betrag wurde erfolgreich überwiesen");
-            CreditAccActions cKonto = new CreditAccActions();
-            this.Close();
-            cKonto.ShowDialog();
+                Bank.transfer(Kntnumber, zielkonto, verwe, betrag);
+                MessageBox.Show("Der Betrag wurde erfolgreich überwiesen");
+                CreditAccActions cKonto = new CreditAccActions();
+                this.Close();
+                cKonto.ShowDialog();
+            }
         }
     }
 }

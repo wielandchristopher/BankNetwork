@@ -80,7 +80,7 @@ namespace Eigene_Bank_DLL_Assembly
         public static extern int getKontonummer(IntPtr kunde, int whichKonto);
 
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
-        public static extern int getAccountType(int Accnumber);
+        public static extern int getAccountType(int kontonummer);
 
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
         public static extern int addSparKontoverfüger(IntPtr sk, IntPtr cust);
@@ -250,9 +250,9 @@ namespace Eigene_Bank_DLL_Assembly
             return accNumber;
         }
 
-        public string getAccType(int Accnumber)
+        public int getAccType(int Accnumber)
         {
-            return getAccountType(Accnumber).ToString();
+            return getAccountType(Accnumber);
         }
 
         public void createBankStatement(int _accNumber)

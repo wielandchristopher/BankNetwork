@@ -18,7 +18,6 @@ namespace BankClient
 
         private void einloggen(object sender, RoutedEventArgs e)
         {
-            //Hier noch auf fehler Prüfen!!
             string _vorname = Vorname.Text;
             string _nachname = Nachname.Text;
             string _birth = Geburtsdatum.Text;

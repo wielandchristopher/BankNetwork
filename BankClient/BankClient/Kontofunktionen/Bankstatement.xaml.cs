@@ -27,44 +27,47 @@ namespace BankClient
         }
 
         private void Zurück(object sender, RoutedEventArgs e)
-        {
-            global.setAccnumber(0);
+        {          
+            int Kontonummer = global.getAccnumber();
+            if (Bank.getAccType(Kontonummer) == 1)
+            {
+                CreditAccActions cKonto = new CreditAccActions();
+                this.Close();
+                cKonto.ShowDialog();
+            }
+            else if(Bank.getAccType(Kontonummer) == 0)
+            {
+                DepositAccActions dKonto = new DepositAccActions();
+                this.Close();
+                dKonto.ShowDialog();
+            }
 
-            //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
-            //{
-            CreditAccActions cKonto = new CreditAccActions();
-            this.Close();
-            cKonto.ShowDialog();
-            //}
-            //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
-            //{
-            //    DepositAccActions dKonto = new DepositAccActions();
-            //    this.Close();
-            //    dKonto.ShowDialog();
-            //}
+            global.setAccnumber(0);
         }
 
         private void auszug(object sender, RoutedEventArgs e)
         {
-            //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
-            //{
-            int Kntnumber = global.getAccnumber();
-            Bank.createBankStatement(Kntnumber);
-            MessageBox.Show("Der Kontoauszug wurde erstellt");
-            CreditAccActions cKonto = new CreditAccActions();
-            this.Close();
-            cKonto.ShowDialog();
-            //}
-            //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
-            //{
-            //    int Kntnumber = global.getDepositAccnumber();
-            //    Bank.createBankStatement(Kntnumber);
-            //    MessageBox.Show("Der Kontoauszug wurde erstellt");
-            //    global.setDepositAccnumber(0);
-            //    DepositAccActions dKonto = new DepositAccActions();
-            //    this.Close();
-            //    dKonto.ShowDialog();
-            //}
+            int Kontonummer = global.getAccnumber();
+
+            if (Bank.getAccType(Kontonummer) == 1)
+            {
+                int Kntnumber = global.getAccnumber();
+                Bank.createBankStatement(Kntnumber);
+                MessageBox.Show("Der Kontoauszug wurde erstellt");
+                CreditAccActions cKonto = new CreditAccActions();
+                this.Close();
+                cKonto.ShowDialog();
+            }
+            else if (Bank.getAccType(Kontonummer) == 0)
+            {
+                int Kntnumber = global.getAccnumber();
+                Bank.createBankStatement(Kntnumber);
+                MessageBox.Show("Der Kontoauszug wurde erstellt");
+                global.setAccnumber(0);
+                DepositAccActions dKonto = new DepositAccActions();
+                this.Close();
+                dKonto.ShowDialog();
+            }
 
         }
     }

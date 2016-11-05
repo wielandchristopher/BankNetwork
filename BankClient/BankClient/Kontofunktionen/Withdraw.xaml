@@ -9,8 +9,8 @@
     <Grid>
         <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,54,0,0" TextWrapping="Wrap" Text="Geben Sie bitte einen Betrag ein, welcher abgebucht werden soll:" VerticalAlignment="Top" Height="23" Width="372"/>
-        <TextBox x:Name="Betrag" HorizontalAlignment="Left" Height="23" Margin="10,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,54,0,0" TextWrapping="Wrap" Text="Geben Sie bitte einen Betrag ein, welcher abgebucht werden soll:" VerticalAlignment="Top" Height="21" Width="372"/>
+        <TextBox x:Name="Betrag" HorizontalAlignment="Left" Height="23" Margin="10,80,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="button" Content="Abbuchen" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="141" Height="56" Click="abbuchen"/>
 
     </Grid>

@@ -35,25 +35,25 @@ namespace BankClient
                 {
                     int Kontonummer = Bank.getBankAccountNumber(_id, i);
 
-                    //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
-                    //{
+                    if (Bank.getAccType(Kontonummer) == 1)
+                    {
                         Button b = new Button();
                         b.Tag = Kontonummer;
                         b.Content = "Kreditkonto: " + Kontonummer;
                         b.Click += new RoutedEventHandler(CreditAccountsettings);
                         ListBoxItem item = new ListBoxItem();
                         listBox.Items.Add(b);
-                    //}
-                    //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
-                    //{
-                    //      Button b = new Button();
-                    //      b.Name = "btn" + i;
-                    //      b.Content = "Sparkonto: " + Kontonummer;
-                    //      b.Click += new RoutedEventHandler(DepositAccountsettings);
-                    //      ListBoxItem item = new ListBoxItem();
-                    //      listBox.Items.Add(b);
-                    //}
-
+                    }
+                    else if(Bank.getAccType(Kontonummer) == 0)
+                    {
+                          Button b = new Button();
+                          b.Tag = Kontonummer;
+                          b.Name = "btn" + i;
+                          b.Content = "Sparkonto: " + Kontonummer;
+                          b.Click += new RoutedEventHandler(DepositAccountsettings);
+                          ListBoxItem item = new ListBoxItem();
+                          listBox.Items.Add(b);
+                    }
                 }
             }
         }
@@ -95,7 +95,7 @@ namespace BankClient
 
         private void NewCreditAcc_Click(object sender, RoutedEventArgs e)
         {
-            if (global.getCountAcc() <global.getmaxCountAcc()) {
+            if (global.getCountAcc() < global.getmaxCountAcc()) {
                 int _id = global.getCustID();
 
                 //Hier wird die KreditKontonummer in den globalen Veriablen gesetzt
