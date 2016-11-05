@@ -28,6 +28,10 @@ namespace Eigene_Bank_DLL_Assembly
         void addCreditAccountUser(int _cNumber, int _id);
         int getBankAccountNumber(int _id, int _whichAccount);
         int getAccType(int Accnumber);
+        int getDepositkontostand(int snumber);
+        int getCreditkontostand(int snumber);
+        int getDepositAccOwner(int snumber, int whichuser);
+        int getCreditAccOwner(int snumber, int whichuser);
 
         // Währungsmodul und Kontoauszug
         void createBankStatement(int _accNumber);

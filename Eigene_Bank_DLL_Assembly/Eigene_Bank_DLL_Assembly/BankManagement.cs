@@ -97,6 +97,18 @@ namespace Eigene_Bank_DLL_Assembly
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr NeuesWaehrungsmodul(IntPtr konto);
 
+        [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int getSparkontostand(IntPtr konto);
+
+        [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int getKreditkontostand(IntPtr konto);
+
+        [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int getKreditkontoverfüger(IntPtr konto, int whichcust);
+
+        [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int getSparkontoverfüger(IntPtr konto, int whichcust);
+
         /**********************************************************************************************************************************
          *  Interface Methoden bezüglich des Customers
          *  ============================================
@@ -333,6 +345,28 @@ namespace Eigene_Bank_DLL_Assembly
             Console.WriteLine("************************************************************************************");
         }
 
-        
+        public int getDepositkontostand(int snumber){
+
+            IntPtr depositAcc = readSparKonto(snumber);           
+            return getSparkontostand(depositAcc); ;
+        }
+        public int getCreditkontostand(int cnumber)
+        {
+
+            IntPtr creditAcc = readKreditKonto(cnumber);
+            return getKreditkontostand(creditAcc); ;
+        }
+        public int getDepositAccOwner(int snumber, int whichuser)
+        {
+            IntPtr depositAcc = readSparKonto(snumber);
+            return getSparkontoverfüger(depositAcc, whichuser);
+
+        }
+        public int getCreditAccOwner(int cnumber, int whichuser)
+        {
+            IntPtr creditAcc = readSparKonto(cnumber);
+            return getKreditkontoverfüger(creditAcc, whichuser);
+
+        }
     }
 }

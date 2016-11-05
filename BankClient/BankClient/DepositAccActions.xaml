@@ -11,6 +11,7 @@
         <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,-90.4,-89.6" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="button_Copy" Content="Einzahlen" HorizontalAlignment="Left" Margin="28,115,0,0" VerticalAlignment="Top" Width="164" Height="58" Click="Deposit"/>
         <Button x:Name="button_Copy1" Content="Kontoauszug" HorizontalAlignment="Left" Margin="28,202,0,0" VerticalAlignment="Top" Width="164" Height="58" Click="Statement"/>
+        <Button x:Name="button1" Content="Konto löschen" Click="loeschen" HorizontalAlignment="Left" Margin="272,217,0,0" VerticalAlignment="Top" Width="110" Height="48"/>
 
     </Grid>
 </Window>

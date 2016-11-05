@@ -14,6 +14,7 @@
         <Button x:Name="button" Content="Einzahlen" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="141" Height="56" Click="einzahlen"/>
         <TextBlock x:Name="Usage" HorizontalAlignment="Left" Margin="12,105,0,0" TextWrapping="Wrap" Text="Verwendungszweck:" VerticalAlignment="Top" Height="23" Width="372"/>
         <TextBox x:Name="Verwendung" HorizontalAlignment="Left" Height="23" Margin="12,133,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="135,77,0,0" TextWrapping="Wrap" Text="in €" VerticalAlignment="Top" Height="23"/>
 
     </Grid>
 </Window>

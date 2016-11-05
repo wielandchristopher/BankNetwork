@@ -16,6 +16,7 @@
         <TextBox x:Name="zielknt" HorizontalAlignment="Left" Height="23" Margin="10,219,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,191,0,0" TextWrapping="Wrap" Text="Geben Sie bitte das Zielkonto ein:" VerticalAlignment="Top" Height="23" Width="372"/>
         <TextBox x:Name="Verwendung" HorizontalAlignment="Left" Height="23" Margin="10,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="135,77,0,0" TextWrapping="Wrap" Text="in €" VerticalAlignment="Top" Height="23"/>
 
     </Grid>
 </Window>

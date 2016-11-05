@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Eigene_Bank_DLL_Assembly;
 
 namespace BankClient
 {
@@ -8,6 +9,7 @@ namespace BankClient
     public partial class CreditAccActions : Window
     {
         GlobalVariables global = new GlobalVariables();
+        BankManagement Bank = new BankManagement();
 
         public CreditAccActions()
         {
@@ -56,6 +58,13 @@ namespace BankClient
             Bankstatement state = new Bankstatement();
             this.Close();
             state.ShowDialog();
+        }
+
+        private void loeschen(object sender, RoutedEventArgs e)
+        {
+            Kontoverwaltung main = new Kontoverwaltung();
+            this.Close();
+            main.ShowDialog();
         }
     }
 }

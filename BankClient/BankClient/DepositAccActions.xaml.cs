@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Eigene_Bank_DLL_Assembly;
 
 namespace BankClient
 {
@@ -8,6 +9,7 @@ namespace BankClient
     public partial class DepositAccActions : Window
     {
         GlobalVariables global = new GlobalVariables();
+        BankManagement Bank = new BankManagement();
 
         public DepositAccActions()
         {
@@ -42,6 +44,22 @@ namespace BankClient
             Deposit depo = new Deposit();
             this.Close();
             depo.ShowDialog();
+        }
+
+        private void loeschen(object sender, RoutedEventArgs e)
+        {
+            int Kontonummer = global.getAccnumber();
+            int user = global.getCustID();
+            if () {
+                Bank.deleteSavingsAccount(Kontonummer, user);
+            }
+            else
+            {
+
+            }
+            Kontoverwaltung main = new Kontoverwaltung();
+            this.Close();
+            main.ShowDialog();
         }
     }
 }
