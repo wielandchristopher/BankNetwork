@@ -202,7 +202,7 @@ namespace Eigene_Bank_DLL_Assembly
         {
             IntPtr creditAccount = readKreditKonto(_cNumber);
             IntPtr customer = readUser(_id);
-            Sparkontoentfernen(creditAccount, customer);
+            Kreditkontoentfernen(creditAccount, customer);
         }
 
         public void depositCreditAcc(int _cNumber, String _usage, double _amount)

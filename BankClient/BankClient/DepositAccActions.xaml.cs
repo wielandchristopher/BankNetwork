@@ -14,6 +14,7 @@ namespace BankClient
         public DepositAccActions()
         {
             InitializeComponent();
+            Kontostandx.Text = Bank.getCreditkontostand(global.getAccnumber()).ToString();
         }
 
         private void Logout(object sender, RoutedEventArgs e)
@@ -50,12 +51,14 @@ namespace BankClient
         {
             int Kontonummer = global.getAccnumber();
             int user = global.getCustID();
-            if () {
+            if (Bank.getDepositkontostand(Kontonummer) == 0) {
+
+                global.setCountAcc(global.getCountAcc() - 1);
                 Bank.deleteSavingsAccount(Kontonummer, user);
             }
             else
             {
-
+                MessageBox.Show("Bitte gleiche Zuerst den Kontostand aus(0)");
             }
             Kontoverwaltung main = new Kontoverwaltung();
             this.Close();

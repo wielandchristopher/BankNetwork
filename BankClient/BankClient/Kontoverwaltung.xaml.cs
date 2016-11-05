@@ -14,14 +14,13 @@ namespace BankClient
 
         bool existAccount(int _idx)
         {
-            for (int i = 0; i < global.getmaxCountAcc(); i++)
+            for (int i = 1; i< global.getmaxCountAcc()+1; i++)
             {
-                if (Bank.getBankAccountNumber(_idx, (global.getmaxCountAcc()) - i) != 0)
+                if (Bank.getBankAccountNumber(global.getCustID(), i) != 0)
                 {
-                    global.setCountAcc(global.getmaxCountAcc() - i);
                     return true;
-                }             
-            }
+                }
+            }        
             return false;
         }
 
@@ -30,16 +29,27 @@ namespace BankClient
             InitializeComponent();
 
             int _id = global.getCustID();
-            if (existAccount(_id) == true) {
-                for (int i = 1; i != global.getCountAcc()+1; i++)
+            int x = 0;
+                
+            for (int i = 0; i != global.getmaxCountAcc(); i++)
+            {
+                if (Bank.getBankAccountNumber(_id, i + 1) != 0)
                 {
-                    int Kontonummer = Bank.getBankAccountNumber(_id, i);
+                    x++;
+                    global.setCountAcc(x);
+                }
+            }    
+
+            if (existAccount(_id) == true) {
+                for (int i = 0; i != 5; i++)
+                {
+                    int Kontonummer = Bank.getBankAccountNumber(_id, i+1);
 
                     if (Bank.getAccType(Kontonummer) == 1)
                     {
                         Button b = new Button();
                         b.Tag = Kontonummer;
-                        b.Content = "Kreditkonto: " + Kontonummer;
+                        b.Content = "Kreditkonto: \t\t\t" + Kontonummer;
                         b.Click += new RoutedEventHandler(CreditAccountsettings);
                         ListBoxItem item = new ListBoxItem();
                         listBox.Items.Add(b);
@@ -49,7 +59,7 @@ namespace BankClient
                           Button b = new Button();
                           b.Tag = Kontonummer;
                           b.Name = "btn" + i;
-                          b.Content = "Sparkonto: " + Kontonummer;
+                          b.Content = "Sparkonto: \t\t\t" + Kontonummer;
                           b.Click += new RoutedEventHandler(DepositAccountsettings);
                           ListBoxItem item = new ListBoxItem();
                           listBox.Items.Add(b);
@@ -95,11 +105,20 @@ namespace BankClient
 
         private void NewCreditAcc_Click(object sender, RoutedEventArgs e)
         {
-            if (global.getCountAcc() < global.getmaxCountAcc()) {
+            if (global.getCountAcc() >= global.getmaxCountAcc())
+            {
+                MessageBox.Show("Der Kunde besitzt schon 5 Konten (Maximum)");
+                Kontoverwaltung konto = new Kontoverwaltung();
+                this.Close();
+                konto.ShowDialog();
+            }
+            else
+            {
                 int _id = global.getCustID();
 
                 //Hier wird die KreditKontonummer in den globalen Veriablen gesetzt
                 global.setAccnumber(Bank.createCreditAccount(_id));
+                global.setCountAcc(global.getCountAcc()+1);
 
                 //Hinzufügen des neuen KreditKontos in die Listbox
                 Button button = new Button();
@@ -113,21 +132,25 @@ namespace BankClient
                 this.Close();
                 konto.ShowDialog();
             }
-            else {
+        
+        }
+
+        private void NewDepositAcc_Click(object sender, RoutedEventArgs e)
+        {
+            if (global.getCountAcc() == global.getmaxCountAcc())
+            {
                 MessageBox.Show("Der Kunde besitzt schon 5 Konten (Maximum)");
                 Kontoverwaltung konto = new Kontoverwaltung();
                 this.Close();
                 konto.ShowDialog();
             }
-        }
-
-        private void NewDepositAcc_Click(object sender, RoutedEventArgs e)
-        {
-            if (global.getCountAcc() < global.getmaxCountAcc()) {
+           else if (global.getCountAcc() < global.getmaxCountAcc())
+            {
                 int _id = global.getCustID();
 
                 //Hier wird die KreditKontonummer in den globalen Veriablen gesetzt
                 global.setAccnumber(Bank.createSavingsAccount(_id));
+                global.setCountAcc(global.getCountAcc() + 1);
 
                 //Hinzufügen des neuen KreditKontos in die Listbox
                 Button button = new Button();
@@ -140,13 +163,7 @@ namespace BankClient
                 Kontoverwaltung konto = new Kontoverwaltung();
                 this.Close();
                 konto.ShowDialog();
-            }
-            else {
-                MessageBox.Show("Der Kunde besitzt schon 5 Konten (Maximum)");
-                Kontoverwaltung konto = new Kontoverwaltung();
-                this.Close();
-                konto.ShowDialog();
-            }
+            }         
         }
     }
 }

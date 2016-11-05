@@ -12,6 +12,9 @@
         <Button x:Name="button_Copy" Content="Einzahlen" HorizontalAlignment="Left" Margin="28,115,0,0" VerticalAlignment="Top" Width="164" Height="58" Click="Deposit"/>
         <Button x:Name="button_Copy1" Content="Kontoauszug" HorizontalAlignment="Left" Margin="28,202,0,0" VerticalAlignment="Top" Width="164" Height="58" Click="Statement"/>
         <Button x:Name="button1" Content="Konto löschen" Click="loeschen" HorizontalAlignment="Left" Margin="272,217,0,0" VerticalAlignment="Top" Width="110" Height="48"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="233,54,0,0" TextWrapping="Wrap" Text="Aktueller Kontostand:" VerticalAlignment="Top" Height="22" Width="149"/>
+        <TextBlock x:Name="Kontostandx" HorizontalAlignment="Left" Margin="233,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="22" Width="56"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="309,81,0,0" TextWrapping="Wrap" Text="in €" VerticalAlignment="Top" Height="22" Width="37"/>
 
     </Grid>
 </Window>
