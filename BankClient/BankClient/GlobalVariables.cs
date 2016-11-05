@@ -1,16 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BankClient
+﻿namespace BankClient
 {
     public class GlobalVariables
     {
         static int custID;
-        static int CreditAccnumber = 0;
-        static int DepositAccnumber = 0;
+        static int Accnumber = 0;
+        static int CountAcc = 0;
+        static int maxCountAcc = 5;
 
         public int getCustID()
         {
@@ -20,22 +15,29 @@ namespace BankClient
         {
             custID = _ID;
         }
-        public int getCreditAccnumber()
+        public int getAccnumber()
         {
-            return CreditAccnumber;
+            return Accnumber;
         }
-        public void setCreditAccnumber(int number)
+        public void setAccnumber(int number)
         {
-            CreditAccnumber = number;
+            Accnumber = number;
         }
-        public int getDepositAccnumber()
+        public int getCountAcc()
         {
-            return DepositAccnumber;
+            return CountAcc;
         }
-        public void setDepositAccnumber(int number)
+        public void setCountAcc(int number)
         {
-            DepositAccnumber = number;
+            CountAcc = number;
         }
-
+        public int getmaxCountAcc()
+        {
+            return maxCountAcc;
+        }
+        public void setmaxCountAcc(int number)
+        {
+            maxCountAcc = number;
+        }
     }
 }

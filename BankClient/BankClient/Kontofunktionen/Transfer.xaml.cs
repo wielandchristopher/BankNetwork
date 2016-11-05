@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using Eigene_Bank_DLL_Assembly;
 
 namespace BankClient
@@ -19,7 +7,7 @@ namespace BankClient
     /// Interaktionslogik für Transfer.xaml
     /// </summary>
 
-    
+
 
     public partial class Transfer : Window
     {
@@ -60,7 +48,7 @@ namespace BankClient
         {
             int zielkonto = int.Parse(zielknt.Text); ;
             double betrag = double.Parse(Betrag.Text, System.Globalization.CultureInfo.InvariantCulture);
-            int Kntnumber = global.getCreditAccnumber();
+            int Kntnumber = global.getAccnumber();
             string verwe = Verwendung.Text;
 
             Bank.transfer(Kntnumber, zielkonto, verwe, betrag);

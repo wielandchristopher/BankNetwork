@@ -21,8 +21,7 @@ namespace BankClient
         private void Logout(object sender, RoutedEventArgs e)
         {
             global.setCustID(0);
-            global.setDepositAccnumber(0);
-            global.setCreditAccnumber(0);
+            global.setAccnumber(0);
             MainWindow main = new MainWindow();
             this.Close();
             main.ShowDialog();
@@ -32,14 +31,14 @@ namespace BankClient
         {
             //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
             //{
-                  global.setCreditAccnumber(0);
+                  global.setAccnumber(0);
                   CreditAccActions cKonto = new CreditAccActions();
                   this.Close();
                   cKonto.ShowDialog();
             //}
             //else if(Bank.getAccType(Kontonummer) == "Sparkonto")
             //{
-            //    global.setDepositAccnumber(0);
+            //    global.setAccnumber(0);
             //    DepositAccActions dKonto = new DepositAccActions();
             //    this.Close();
             //    dKonto.ShowDialog();
@@ -54,7 +53,7 @@ namespace BankClient
 
             //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
             //{
-                 int Kntnumber = global.getCreditAccnumber();
+                 int Kntnumber = global.getAccnumber();
                  Bank.depositCreditAcc(Kntnumber, verwe, betrag);
                  MessageBox.Show("Der Betrag wurde erfolgreich eingezahlt");
                  CreditAccActions cKonto = new CreditAccActions();

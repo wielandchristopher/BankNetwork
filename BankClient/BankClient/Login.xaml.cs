@@ -23,11 +23,17 @@ namespace BankClient
             string _nachname = Nachname.Text;
             string _birth = Geburtsdatum.Text;
 
-            global.setCustID(Bank.getCustomer(_vorname, _nachname, _birth));
-
-            Startseite main = new Startseite();
-            this.Close();
-            main.ShowDialog();
+            if (Bank.getCustomer(_vorname, _nachname, _birth) == -1)
+            {
+                MessageBox.Show("Der angegebene Kunde existiert nicht");
+            }
+            else
+            {
+                global.setCustID(Bank.getCustomer(_vorname, _nachname, _birth));
+                Startseite main = new Startseite();
+                this.Close();
+                main.ShowDialog();
+            }
         }
         private void zurück(object sender, RoutedEventArgs e)
         {

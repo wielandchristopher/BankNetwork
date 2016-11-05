@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using Eigene_Bank_DLL_Assembly;
 
 namespace BankClient
@@ -40,10 +28,10 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
+            global.setAccnumber(0);
+
             //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
             //{
-            global.setDepositAccnumber(0);
-            global.setCreditAccnumber(0);
             CreditAccActions cKonto = new CreditAccActions();
             this.Close();
             cKonto.ShowDialog();
@@ -60,7 +48,7 @@ namespace BankClient
         {
             //if (Bank.getAccType(Kontonummer) == "Kreditkonto")
             //{
-            int Kntnumber = global.getCreditAccnumber();
+            int Kntnumber = global.getAccnumber();
             Bank.createBankStatement(Kntnumber);
             MessageBox.Show("Der Kontoauszug wurde erstellt");
             CreditAccActions cKonto = new CreditAccActions();

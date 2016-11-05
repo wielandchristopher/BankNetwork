@@ -9,7 +9,7 @@
     <Grid>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="9,0,0,339" TextWrapping="Wrap" Text="Geben Sie bitte Ihren Vornamen ein: " VerticalAlignment="Bottom"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte Ihren "/><Run Text="Nach"/><Run Text="namen ein: "/></TextBlock>
-        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="217"><Run Text="Geben Sie bitte Ihr"/><Run Text=" Geburtsdatum"/><Run Text=" "/><Run Text="ein: "/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284"><Run Text="Geben Sie bitte Ihr Geburtsdatum ein (DDMMYYYY):"/></TextBlock>
         <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="9,159,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte Ihre "/><Run Text="Adresse "/><Run Text="ein: "/></TextBlock>
         <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="10,208,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte Ihren "/><Run Text="Wohnort "/><Run Text="ein: "/></TextBlock>
         <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="10,257,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte "/><Run Text="Ihre Telefonnumer "/><Run Text="ein: "/></TextBlock>

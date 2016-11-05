@@ -11,6 +11,6 @@
         <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="NewCreditAcc" Content="neues Kreditkonto?" Margin="44,279,0,0" VerticalAlignment="Top" Height="32" Click="NewCreditAcc_Click" HorizontalAlignment="Left" Width="131"/>
         <Button x:Name="NewDepositAcc" Content="neues Sparkonto?" HorizontalAlignment="Left" Margin="221,279,0,0" VerticalAlignment="Top" Width="131" Height="32" Click="NewDepositAcc_Click"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Margin="60,69,0,0" VerticalAlignment="Top" Width="274"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="147" Margin="60,69,0,0" VerticalAlignment="Top" Width="274"/>
     </Grid>
 </Window>
