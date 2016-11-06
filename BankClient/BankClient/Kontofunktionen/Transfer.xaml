@@ -17,6 +17,8 @@
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="47,359,0,0" TextWrapping="Wrap" Text="Geben Sie bitte das Zielkonto ein:" VerticalAlignment="Top" Height="42" Width="372" FontSize="24"/>
         <TextBox x:Name="Verwendung" HorizontalAlignment="Left" Height="42" Margin="47,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="407" FontSize="24"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="328,113,0,0" TextWrapping="Wrap" Text="€" VerticalAlignment="Top" Height="42" Width="43" FontSize="24"/>
+        <TextBox x:Name="zielknt_BIC" HorizontalAlignment="Left" Height="42" Margin="520,406,0,0" TextWrapping="Wrap" Text="derzeit optional, wird später benötigt." VerticalAlignment="Top" Width="407" FontSize="24"/>
+        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="520,359,0,0" TextWrapping="Wrap" Text="Geben Sie bitte Die BIC des Kontos an:" VerticalAlignment="Top" Height="42" Width="407" FontSize="24"/>
 
     </Grid>
 </Window>
