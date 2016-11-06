@@ -51,8 +51,9 @@ namespace BankClient
                 {
                     int number = Bank.getBankAccountNumber(CustID, i);
                     ListBoxItem item = new ListBoxItem();
-                    item.Content = "Kreditkonto: \t\t\t" + number;
+                    item.Content = "Kreditkonto: \t\t\t\t\t\t\t\t            " + number;
                     item.Tag = number;
+                    item.FontSize = 24;
                     item.Selected += new RoutedEventHandler(uebertrag);
                     listBox.Items.Add(item);
                 }
@@ -69,8 +70,7 @@ namespace BankClient
         }
 
         private void Zurück(object sender, RoutedEventArgs e)
-        {
-                global.setAccnumber(0);
+        {                
                 DepositAccActions dKonto = new DepositAccActions();
                 this.Close();
                 dKonto.ShowDialog();

@@ -53,8 +53,9 @@ namespace BankClient
                     {
                         int CustID = Bank.getCreditAccOwner(Kontonummerx, i);
                         ListBoxItem item = new ListBoxItem();
-                        item.Content = "User mit ID: \t\t\t" + CustID;
+                        item.Content = "User mit ID: \t\t\t\t\t\t\t\t\t           " + CustID;
                         item.Tag = CustID;
+                        item.FontSize = 24;
                         item.Selected += new RoutedEventHandler(deleteuser);
                         listBox.Items.Add(item);
                     }
@@ -62,8 +63,9 @@ namespace BankClient
                     {
                         int CustID = Bank.getDepositAccOwner(Kontonummerx, i);
                         ListBoxItem item = new ListBoxItem();
-                        item.Content = "User mit ID: \t\t\t" + CustID;
-                        item.Tag = CustID;                       
+                        item.Content = "User mit ID: \t\t\t\t\t\t\t\t\t           " + CustID;
+                        item.Tag = CustID;
+                        item.FontSize = 24;
                         item.Selected += new RoutedEventHandler(deleteuser);
                         listBox.Items.Add(item);
                     }
