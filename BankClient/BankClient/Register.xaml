@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
         Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
-    <Grid>
+    <Grid Background="#FFA2C5E8">
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="47,15,0,0" TextWrapping="Wrap" Text="Geben Sie bitte Ihren Vornamen ein: " FontSize="24" Height="32" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="47,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"><Run Text="Geben Sie bitte Ihren "/><Run Text="Nach"/><Run Text="namen ein: "/></TextBlock>
         <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="46,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="566" FontSize="24"><Run Text="Geben Sie bitte Ihr Geburtsdatum ein (DDMMYYYY):"/></TextBlock>

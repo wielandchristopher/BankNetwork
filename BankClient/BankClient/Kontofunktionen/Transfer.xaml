@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
         Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
-    <Grid>
-        <Button x:Name="Log_out" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
+    <Grid Background="#FFA2C5E8">
+        <Button x:Name="Log_out" Background="#FFDA8383" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
         <Button x:Name="Back" Content="Zurück" Click="Zurück" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="47,66,0,0" TextWrapping="Wrap" Text="Geben Sie bitte einen Betrag ein, welcher überwiesen werden soll:" VerticalAlignment="Top" Height="42" Width="716" FontSize="24"/>
         <TextBox x:Name="Betrag" HorizontalAlignment="Left" Height="42" Margin="47,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" FontSize="24"/>

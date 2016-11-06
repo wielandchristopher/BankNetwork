@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
         Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
-    <Grid>
+    <Grid Background="#FFA2C5E8">
 
-        <Button x:Name="button" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
+        <Button x:Name="button" Background="#FFDA8383" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
         <Button x:Name="Kundendaten" Content="Kundendatenverwaltung" Click="Kundendatenaenderung" Margin="345,249,348.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
         <Button x:Name="Konto" Content="Kontoverwaltung" Click="Kontoverwaltung" Margin="345,464,348.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
 

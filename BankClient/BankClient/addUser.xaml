@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
         Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
-    <Grid>
-        <Button x:Name="Log_out" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
+    <Grid Background="#FFA2C5E8">
+        <Button x:Name="Log_out" Content="Logout" Background="#FFDA8383" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
         <Button x:Name="Back" Content="Zurück" Click="Zurück" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="47,76,0,0" TextWrapping="Wrap" Text="Geben Sie bitte Ihren Vornamen ein: " FontSize="24" Height="32" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="47,221,0,0" TextWrapping="Wrap" Height="32" VerticalAlignment="Top" FontSize="24"><Run Text="Geben Sie bitte den Nachnamen des zusätzlichen Users ein: "/></TextBlock>

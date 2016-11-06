@@ -6,8 +6,8 @@
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
         Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
-    <Grid>
-        <Button x:Name="Log_out" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
+    <Grid Background="#FFA2C5E8">
+        <Button x:Name="Log_out" Background="#FFDA8383" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
         <Button x:Name="Back" Content="Zurück" Click="Zurück" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
         <ListBox x:Name="listBox" Height="306" Margin="66,171,56.6,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="66,124,0,0" TextWrapping="Wrap" Text="Hier sind alle zusätzlichen Kontoverfüger gelistet:" VerticalAlignment="Top" Height="42" Width="580" FontSize="24"/>
