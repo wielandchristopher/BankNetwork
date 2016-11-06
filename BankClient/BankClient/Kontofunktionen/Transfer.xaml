@@ -5,18 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="Transfer" Height="400" Width="400" WindowStartupLocation = "CenterScreen">
+        Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
     <Grid>
-        <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,54,0,0" TextWrapping="Wrap" Text="Geben Sie bitte einen Betrag ein, welcher überwiesen werden soll:" VerticalAlignment="Top" Height="23" Width="372"/>
-        <TextBox x:Name="Betrag" HorizontalAlignment="Left" Height="23" Margin="10,77,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button" Content="Überweisen" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="141" Height="56" Click="transfer"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="Verwendungszweck:" VerticalAlignment="Top" Height="23" Width="372"/>
-        <TextBox x:Name="zielknt" HorizontalAlignment="Left" Height="23" Margin="10,219,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,191,0,0" TextWrapping="Wrap" Text="Geben Sie bitte das Zielkonto ein:" VerticalAlignment="Top" Height="23" Width="372"/>
-        <TextBox x:Name="Verwendung" HorizontalAlignment="Left" Height="23" Margin="10,128,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="135,77,0,0" TextWrapping="Wrap" Text="in €" VerticalAlignment="Top" Height="23"/>
+        <Button x:Name="Log_out" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
+        <Button x:Name="Back" Content="Zurück" Click="Zurück" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="47,66,0,0" TextWrapping="Wrap" Text="Geben Sie bitte einen Betrag ein, welcher überwiesen werden soll:" VerticalAlignment="Top" Height="42" Width="716" FontSize="24"/>
+        <TextBox x:Name="Betrag" HorizontalAlignment="Left" Height="42" Margin="47,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="276" FontSize="24"/>
+        <Button x:Name="button" Content="Überweisen" Margin="47,544,646.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30" Click="transfer"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="47,211,0,0" TextWrapping="Wrap" Text="Verwendungszweck:" VerticalAlignment="Top" Height="42" Width="372" FontSize="24"/>
+        <TextBox x:Name="zielknt" HorizontalAlignment="Left" Height="42" Margin="47,406,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="407" FontSize="24"/>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="47,359,0,0" TextWrapping="Wrap" Text="Geben Sie bitte das Zielkonto ein:" VerticalAlignment="Top" Height="42" Width="372" FontSize="24"/>
+        <TextBox x:Name="Verwendung" HorizontalAlignment="Left" Height="42" Margin="47,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="407" FontSize="24"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="328,113,0,0" TextWrapping="Wrap" Text="€" VerticalAlignment="Top" Height="42" Width="43" FontSize="24"/>
 
     </Grid>
 </Window>

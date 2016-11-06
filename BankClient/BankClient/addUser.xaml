@@ -5,17 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="addUser" Height="400" Width="400" WindowStartupLocation = "CenterScreen">
+        Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
     <Grid>
-        <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,-92,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,0,0,316" TextWrapping="Wrap" Text="Geben Sie bitte den Vornamen des zusätzlichen Users ein: " VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="9,86,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte den Nachnamen des zusätzlichen Users ein: "/></TextBlock>
-        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="9,135,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="337" Height="16"><Run Text="Geben Sie bitte das Geburtsdatum des zusätzlichen Users ein: "/><Run Text="ein: "/></TextBlock>
-        <TextBox x:Name="Vorname" HorizontalAlignment="Left" Height="23" Margin="9,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Nachname" HorizontalAlignment="Left" Height="23" Margin="9,107,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Geburtsdatum" HorizontalAlignment="Left" Height="23" Margin="9,156,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button_Copy" Content="Verfüger hinzufügen" Click="adduser" HorizontalAlignment="Left" Margin="42,325,0,0" VerticalAlignment="Top" Height="37" Width="119"/>
+        <Button x:Name="Log_out" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
+        <Button x:Name="Back" Content="Zurück" Click="Zurück" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="47,76,0,0" TextWrapping="Wrap" Text="Geben Sie bitte Ihren Vornamen ein: " FontSize="24" Height="32" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="47,221,0,0" TextWrapping="Wrap" Height="32" VerticalAlignment="Top" FontSize="24"><Run Text="Geben Sie bitte den Nachnamen des zusätzlichen Users ein: "/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="47,369,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="674" Height="32" FontSize="24"><Run Text="Geben Sie bitte das Geburtsdatum des zusätzlichen Users ein: "/></TextBlock>
+        <TextBox x:Name="Vorname" HorizontalAlignment="Left" Height="42" Margin="47,113,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="407" FontSize="24"/>
+        <TextBox x:Name="Nachname" HorizontalAlignment="Left" Height="42" Margin="47,258,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="407" FontSize="24"/>
+        <TextBox x:Name="Geburtsdatum" HorizontalAlignment="Left" Height="42" Margin="47,406,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="407" FontSize="24"/>
+        <Button x:Name="button_Copy" Content="Verfüger hinzufügen" Click="adduser" Margin="47,544,646.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
 
     </Grid>
 </Window>

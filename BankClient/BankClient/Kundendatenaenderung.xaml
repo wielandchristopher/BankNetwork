@@ -5,23 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="Kundendatenaenderung" Height="400" Width="400" WindowStartupLocation = "CenterScreen">
+        Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
     <Grid>
-        <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Aenderung" Content="Daten ändern" Click="aendern" HorizontalAlignment="Left" Margin="10,321,0,0" VerticalAlignment="Top" Width="89" Height="41"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,0,0,346" TextWrapping="Wrap" Text="Geben Sie bitte Ihren Vornamen ein: " VerticalAlignment="Bottom"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="10,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte Ihren "/><Run Text="Nach"/><Run Text="namen ein: "/></TextBlock>
-        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="10,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte Ihre Adresse und Hausnummer ein:"/></TextBlock>
-        <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="10,157,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte Ihre Postleitzahl und Ihren Wohnort ein:"/></TextBlock>
-        <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="10,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top"><Run Text="Geben Sie bitte "/><Run Text="Ihre Telefonnumer "/><Run Text="ein: "/></TextBlock>
-        <TextBox x:Name="Vorname" HorizontalAlignment="Left" Height="23" Margin="9,38,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="188"/>
-        <TextBox x:Name="Nachname" HorizontalAlignment="Left" Height="23" Margin="10,87,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="187"/>
-        <TextBox x:Name="Adresse" HorizontalAlignment="Left" Height="23" Margin="10,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="187"/>
-        <TextBox x:Name="Wohnort" HorizontalAlignment="Left" Height="23" Margin="101,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="153"/>
-        <TextBox x:Name="Telefonnummer" HorizontalAlignment="Left" Height="23" Margin="9,227,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="187"/>
-        <TextBox x:Name="Hausnummer" HorizontalAlignment="Left" Height="23" Margin="212,130,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="42"/>
-        <TextBox x:Name="Postleitzahl" HorizontalAlignment="Left" Height="23" Margin="10,178,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="71"/>
+        <Button x:Name="Log_out" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
+        <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
+        <Button x:Name="Aenderung" Content="Daten ändern" Click="aendern" Margin="47,544,646.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="47,15,0,0" TextWrapping="Wrap" Text="Geben Sie bitte Ihren Vornamen ein: " FontSize="24" Height="32" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="47,99,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"><Run Text="Geben Sie bitte Ihren "/><Run Text="Nach"/><Run Text="namen ein: "/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="46,184,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"><Run Text="Geben Sie bitte Ihre Adresse und Hausnummer ein:"/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="47,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"><Run Text="Geben Sie bitte Ihre Postleizahl und Ihren Wohnort ein: "/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="47,352,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="24"><Run Text="Geben Sie bitte "/><Run Text="Ihre Telefonnumer "/><Run Text="ein: "/></TextBlock>
+        <TextBox x:Name="Vorname" HorizontalAlignment="Left" Height="42" Margin="47,52,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="407" FontSize="24"/>
+        <TextBox x:Name="Nachname" HorizontalAlignment="Left" Height="42" Margin="47,137,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="407" FontSize="24"/>
+        <TextBox x:Name="Adresse" HorizontalAlignment="Left" Height="42" Margin="47,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="321" FontSize="24"/>
+        <TextBox x:Name="Wohnort" HorizontalAlignment="Left" Height="42" Margin="200,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="254" FontSize="24"/>
+        <TextBox x:Name="Telefonnummer" HorizontalAlignment="Left" Height="42" Margin="47,389,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="407" FontSize="24"/>
+        <TextBox x:Name="Hausnummer" HorizontalAlignment="Left" Height="42" Margin="394,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="60" FontSize="24"/>
+        <TextBox x:Name="Postleitzahl" HorizontalAlignment="Left" Height="42" Margin="47,305,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="131" FontSize="24"/>
 
     </Grid>
 </Window>

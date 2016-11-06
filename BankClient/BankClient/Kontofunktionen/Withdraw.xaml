@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="Withdraw" Height="400" Width="400" WindowStartupLocation = "CenterScreen">
+        Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
     <Grid>
-        <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,0,0" VerticalAlignment="Top" Width="75"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="10,54,0,0" TextWrapping="Wrap" Text="Geben Sie bitte einen Betrag ein, welcher abgebucht werden soll:" VerticalAlignment="Top" Height="21" Width="372"/>
-        <TextBox x:Name="Betrag" HorizontalAlignment="Left" Height="23" Margin="10,80,0,0" TextWrapping="Wrap" Text="0,00" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="button" Content="Abbuchen" HorizontalAlignment="Left" Margin="10,289,0,0" VerticalAlignment="Top" Width="141" Height="56" Click="abbuchen"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="135,80,0,0" TextWrapping="Wrap" Text="in €" VerticalAlignment="Top" Height="23" RenderTransformOrigin="0.809,0.806"/>
+        <Button x:Name="Log_out" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
+        <Button x:Name="Back" Content="Zurück" Click="Zurück" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="47,184,0,0" TextWrapping="Wrap" Height="32" VerticalAlignment="Top" FontSize="24" Text="Geben Sie bitte einen Betrag ein, welcher abgebucht werden soll:" />
+        <TextBox x:Name="Betrag" HorizontalAlignment="Left" Height="42" Margin="47,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="407" FontSize="24"/>
+        <Button x:Name="button" Content="Abbuchen" Margin="47,544,646.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30" Click="abbuchen"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="459,221,0,0" TextWrapping="Wrap" Text="€" VerticalAlignment="Top" Height="42" FontSize="24" RenderTransformOrigin="0.809,0.806" Width="53"/>
 
     </Grid>
 </Window>

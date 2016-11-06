@@ -47,22 +47,21 @@ namespace BankClient
 
                     if (Bank.getAccType(Kontonummer) == 1)
                     {
-                        Button b = new Button();
-                        b.Tag = Kontonummer;
-                        b.Content = "Kreditkonto: \t\t\t" + Kontonummer;
-                        b.Click += new RoutedEventHandler(CreditAccountsettings);
                         ListBoxItem item = new ListBoxItem();
-                        listBox.Items.Add(b);
+                        item.Tag = Kontonummer;
+                        item.FontSize = 24;
+                        item.Content = "Kreditkonto: \t\t\t\t\t\t\t\t            " + Kontonummer;
+                        item.Selected += new RoutedEventHandler(CreditAccountsettings);
+                        listBox.Items.Add(item);
                     }
                     else if(Bank.getAccType(Kontonummer) == 0)
                     {
-                          Button b = new Button();
-                          b.Tag = Kontonummer;
-                          b.Name = "btn" + i;
-                          b.Content = "Sparkonto: \t\t\t" + Kontonummer;
-                          b.Click += new RoutedEventHandler(DepositAccountsettings);
-                          ListBoxItem item = new ListBoxItem();
-                          listBox.Items.Add(b);
+                        ListBoxItem item = new ListBoxItem();
+                        item.Tag = Kontonummer;
+                        item.FontSize = 24;
+                        item.Content = "Sparkonto: \t\t\t\t\t\t\t\t            " + Kontonummer;
+                        item.Selected += new RoutedEventHandler(DepositAccountsettings);
+                        listBox.Items.Add(item);
                     }
                 }
             }
@@ -87,8 +86,8 @@ namespace BankClient
 
         void CreditAccountsettings(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
-            global.setAccnumber((int)btn.Tag);
+            ListBoxItem item = (ListBoxItem)sender;
+            global.setAccnumber((int)item.Tag);
             CreditAccActions Konto = new CreditAccActions();
             this.Close();
             Konto.ShowDialog();
@@ -96,8 +95,8 @@ namespace BankClient
 
         void DepositAccountsettings(object sender, RoutedEventArgs e)
         {
-            Button btn = (Button)sender;
-            global.setAccnumber((int)btn.Tag);
+            ListBoxItem item = (ListBoxItem)sender;
+            global.setAccnumber((int)item.Tag);
             DepositAccActions Konto = new DepositAccActions();
             this.Close();
             Konto.ShowDialog();

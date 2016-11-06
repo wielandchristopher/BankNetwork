@@ -5,19 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="DepositAccActions" Height="400" Width="400" WindowStartupLocation = "CenterScreen">
+        Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
     <Grid>
-        <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,-90.4,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,-90.4,-89.6" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="button_Copy" Content="Einzahlen" HorizontalAlignment="Left" Margin="27,166,0,0" VerticalAlignment="Top" Width="164" Height="58" Click="Deposit"/>
-        <Button x:Name="button_Copy1" Content="Kontoauszug" HorizontalAlignment="Left" Margin="27,253,0,0" VerticalAlignment="Top" Width="164" Height="58" Click="Statement"/>
-        <Button x:Name="button1" Content="Konto löschen" Click="loeschen" HorizontalAlignment="Left" Margin="272,217,0,0" VerticalAlignment="Top" Width="110" Height="48"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="233,54,0,0" TextWrapping="Wrap" Text="Aktueller Kontostand:" VerticalAlignment="Top" Height="22" Width="149"/>
-        <TextBlock x:Name="Kontostandy" HorizontalAlignment="Left" Margin="233,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="22" Width="56"/>
-        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="309,81,0,0" TextWrapping="Wrap" Text="in €" VerticalAlignment="Top" Height="22" Width="37"/>
-        <Button x:Name="button2" Content="Add User" Click="add_user" HorizontalAlignment="Left" Margin="332,167,0,0" VerticalAlignment="Top" Width="52" Height="45"/>
-        <Button x:Name="button2_Copy" Content="delete User" Click="delete_user" HorizontalAlignment="Left" Margin="272,167,0,0" VerticalAlignment="Top" Width="52" Height="45"/>
-        <Button x:Name="button_Copy2" Content="Eigenübertrag" HorizontalAlignment="Left" Margin="27,84,0,0" VerticalAlignment="Top" Width="164" Height="58" Click="eingenuebertrag"/>
+        <Button x:Name="Log_out" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
+        <Button x:Name="Back" Content="Zurück" Click="Zurück" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
+        <Button x:Name="button_Copy" Content="Einzahlen" Margin="41,256,695.6,0" VerticalAlignment="Top" Height="88" FontSize="30" Click="Deposit"/>
+        <Button x:Name="button_Copy1" Content="Kontoauszug" Margin="41,412,695.6,0" VerticalAlignment="Top" Height="88" FontSize="30" Click="Statement"/>
+        <Button x:Name="button1" Content="Konto löschen" Click="loeschen" HorizontalAlignment="Left" Margin="887,412,0,0" VerticalAlignment="Top" Width="250" Height="69" FontSize="30"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="558,40,0,0" TextWrapping="Wrap" Text="Aktueller Kontostand:" VerticalAlignment="Top" Height="49" Width="324" FontSize="24"/>
+        <TextBlock x:Name="Kontostandy" HorizontalAlignment="Right" Margin="0,86,432.6,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="42" Width="203" FontSize="24" TextAlignment="Right"/>
+        <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="766,86,0,0" TextWrapping="Wrap" Text="€" VerticalAlignment="Top" Height="42" Width="53" FontSize="24"/>
+        <Button x:Name="button2" Content="Verfüger hinzufügen" Click="add_user" HorizontalAlignment="Left" Margin="887,302,0,0" VerticalAlignment="Top" Width="250" Height="69" FontSize="26"/>
+        <Button x:Name="button2_Copy" Content="Verfüger entfernen" Click="delete_user" HorizontalAlignment="Left" Margin="887,228,0,0" VerticalAlignment="Top" Width="250" Height="69" FontSize="26"/>
+        <Button x:Name="button_Copy2" Content="Eigenübertrag" Margin="41,108,695.6,0" VerticalAlignment="Top" Height="88" FontSize="30" Click="eingenuebertrag"/>
 
     </Grid>
 </Window>

@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="deleteUser" Height="400" Width="400" WindowStartupLocation = "CenterScreen">
+        Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
     <Grid>
-        <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,-92,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,-92,-91" VerticalAlignment="Top" Width="75"/>
-        <ListBox x:Name="listBox" Height="122" Margin="42,120,42,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="42,99,0,0" TextWrapping="Wrap" Text="Hier sind alle zusätzlichen Kontoverfüger gelistet:" VerticalAlignment="Top" Height="16" Width="310"/>
+        <Button x:Name="Log_out" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
+        <Button x:Name="Back" Content="Zurück" Click="Zurück" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
+        <ListBox x:Name="listBox" Height="306" Margin="66,171,56.6,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="66,124,0,0" TextWrapping="Wrap" Text="Hier sind alle zusätzlichen Kontoverfüger gelistet:" VerticalAlignment="Top" Height="42" Width="580" FontSize="24"/>
 
     </Grid>
 </Window>

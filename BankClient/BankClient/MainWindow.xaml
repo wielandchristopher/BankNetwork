@@ -5,12 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525" WindowStartupLocation = "CenterScreen">
+        Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
     <Grid>
-        <Button x:Name="reg" Click="register" Content="Neu bei uns?" HorizontalAlignment="Left" Margin="38,132,0,0" VerticalAlignment="Top" Width="150" Height="50"/>
-        <Button x:Name="logon" Click="login" Content="Hier Einloggen!" Margin="331,132,38,0" VerticalAlignment="Top" Height="50"/>
-        <Label x:Name="label" Content="Willkommen beim Bank Client" Height="43" Margin="130,27,130,0" VerticalAlignment="Top" FontSize="18"/>
-        <Button x:Name="logon_Copy" Click="Beenden" Content="Beenden" Margin="331,246,38.4,0" VerticalAlignment="Top" Height="50"/>
+        <Button x:Name="reg" Click="register" Content="Neu bei uns?" HorizontalAlignment="Left" Margin="46,228,0,0" VerticalAlignment="Top" Width="482" Height="95" FontSize="30"/>
+        <Button x:Name="logon" Click="login" Content="Hier Einloggen!" Margin="637,228,37.6,0" VerticalAlignment="Top" Height="95" FontSize="30"/>
+        <Label x:Name="label" Content="Willkommen beim Bank Client" Height="75" Margin="250,33,234.6,0" VerticalAlignment="Top" FontSize="50" HorizontalAlignment="Center"/>
+        <Button x:Name="logon_Copy" Click="Beenden" Content="Beenden" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
 
     </Grid>
 </Window>

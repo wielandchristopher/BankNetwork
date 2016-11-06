@@ -5,12 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="Kontoverwaltung" Height="400" Width="400" WindowStartupLocation = "CenterScreen">
+        Title="Bank" Height="700" Width="1200" WindowStartupLocation = "CenterScreen">
     <Grid>
-        <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="NewCreditAcc" Content="neues Kreditkonto?" Margin="44,279,0,0" VerticalAlignment="Top" Height="32" Click="NewCreditAcc_Click" HorizontalAlignment="Left" Width="131"/>
-        <Button x:Name="NewDepositAcc" Content="neues Sparkonto?" HorizontalAlignment="Left" Margin="221,279,0,0" VerticalAlignment="Top" Width="131" Height="32" Click="NewDepositAcc_Click"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="147" Margin="67,70,0,0" VerticalAlignment="Top" Width="264"/>
+        <Button x:Name="Log_out" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
+        <Button x:Name="Back" Content="Zurück" Click="Zurück" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
+        <Button x:Name="NewCreditAcc" Content="neues Kreditkonto?" HorizontalAlignment="Left" Margin="66,544,0,0" VerticalAlignment="Top" Width="222" Height="88" Click="NewCreditAcc_Click" FontSize="24" />
+        <Button x:Name="NewDepositAcc" Content="neues Sparkonto?" HorizontalAlignment="Left" Margin="349,544,0,0" VerticalAlignment="Top" Width="222" Height="88" Click="NewDepositAcc_Click" FontSize="24"/>
+        <ListBox x:Name="listBox" Height="306" Margin="66,171,56.6,0" VerticalAlignment="Top"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="66,124,0,0" TextWrapping="Wrap" Text="Hier werden deine Konten aufgelistet. Klicken Sie auf eines für weitere Aktionen:" VerticalAlignment="Top" FontSize="22" Height="42" Width="780"/>
     </Grid>
 </Window>
