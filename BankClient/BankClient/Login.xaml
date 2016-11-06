@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="Login" Height="400" Width="400">
+        Title="Login" Height="400" Width="400" WindowStartupLocation = "CenterScreen">
 
     <Grid>
         <Button x:Name="button" Content="Zurück" Click="zurück" HorizontalAlignment="Left" Margin="230,325,0,0" VerticalAlignment="Top" Height="37" Width="119"/>

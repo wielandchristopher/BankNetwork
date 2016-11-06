@@ -79,5 +79,12 @@ namespace BankClient
             this.Close();
             delu.ShowDialog();
         }
+
+        private void eingenuebertrag(object sender, RoutedEventArgs e)
+        {
+            Selftransaction seltr = new Selftransaction();
+            this.Close();
+            seltr.ShowDialog();
+        }
     }
 }

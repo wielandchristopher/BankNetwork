@@ -90,6 +90,9 @@
     <Compile Include="Register.xaml.cs">
       <DependentUpon>Register.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Kontofunktionen\Selftransaction.xaml.cs">
+      <DependentUpon>Selftransaction.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Startseite.xaml.cs">
       <DependentUpon>Startseite.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Register.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Kontofunktionen\Selftransaction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

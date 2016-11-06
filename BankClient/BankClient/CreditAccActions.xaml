@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BankClient"
         mc:Ignorable="d"
-        Title="CreditAccActions" Height="400" Width="400">
+        Title="CreditAccActions" Height="400" Width="400" WindowStartupLocation = "CenterScreen">
     <Grid>
         <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,0,0" VerticalAlignment="Top" Width="75"/>
