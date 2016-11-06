@@ -29,19 +29,6 @@ namespace BankClient
             return double.TryParse(value, out Val);
         }
 
-        bool existAccount(int _idx)
-        {
-
-            for (int i = 1; i < global.getmaxCountAcc() + 1; i++)
-            {
-                if ((Bank.getBankAccountNumber(global.getCustID(), i) != 0) && (Bank.getAccType(_idx) == 1))
-                {                    
-                    return true;
-                }
-            }
-            return false;
-        }
-
         public Selftransaction()
         {
             InitializeComponent();
@@ -62,12 +49,11 @@ namespace BankClient
             {
                 for (int i = 1; i != x+1; i++)
                 {
-
                     int number = Bank.getBankAccountNumber(CustID, i);
                     ListBoxItem item = new ListBoxItem();
                     item.Content = "Kreditkonto: \t\t\t" + number;
                     item.Tag = number;
-                    //item.Selected += new RoutedEventHandler(deleteuser);
+                    item.Selected += new RoutedEventHandler(uebertrag);
                     listBox.Items.Add(item);
                 }
             }
@@ -92,7 +78,52 @@ namespace BankClient
 
         private void uebertrag(object sender, RoutedEventArgs e)
         {
+            string Betr = Betrag.Text;
+            ListBoxItem item = (ListBoxItem)sender;
+            int zielkonto = (int)item.Tag;
 
+            if(Betr == "")
+            {
+                MessageBox.Show("Bitte geben Sie einen Betrag ein");
+            }
+            else if (IsNumeric(Betr) == false)
+            {
+                MessageBox.Show("Der Betrag kann kein Text sein");
+                DepositAccActions dKonto = new DepositAccActions();
+                this.Close();
+                dKonto.ShowDialog();
+            }
+            else
+            {
+                if (MessageBox.Show("Soll der Betrag auf das gewählte Konto überwiesen werden?",
+                  "Sicherheitsabfrage", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
+                {
+
+                    double betrag = double.Parse(Betr, System.Globalization.CultureInfo.InvariantCulture);
+
+                    if ((Bank.getDepositkontostand(global.getAccnumber()) - betrag) < 0)
+                    {
+                        MessageBox.Show("der eingegebene Betrag übersteigt das derzeitige Saldo. Bitte wählen Sie einen kleineren Betrag");
+                        DepositAccActions dKonto = new DepositAccActions();
+                        this.Close();
+                        dKonto.ShowDialog();
+                    }
+                    else
+                    {
+                        Bank.depositCreditAcc(zielkonto, " Eigenübertrag ", betrag);
+                        Bank.withdrawSavingsAcc(global.getAccnumber(), betrag);
+                        DepositAccActions dKonto = new DepositAccActions();
+                        this.Close();
+                        dKonto.ShowDialog();
+                    }
+                }
+                else
+                {
+                    DepositAccActions dKonto = new DepositAccActions();
+                    this.Close();
+                    dKonto.ShowDialog();
+                }
+            }
         }
     }
 }

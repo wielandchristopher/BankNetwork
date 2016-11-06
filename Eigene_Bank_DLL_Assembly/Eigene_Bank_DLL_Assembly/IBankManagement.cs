@@ -35,6 +35,8 @@ namespace Eigene_Bank_DLL_Assembly
         int deleteCreditAccUser(int Kontonummer, int additionalUser);
         int deleteSavingsAccUser(int Kontonummer, int additionalUser);
 
+        void withdrawSavingsAcc(int _snumber, double _amount);
+
         // Währungsmodul und Kontoauszug
         void createBankStatement(int _accNumber);
         void convertMoney(int _cNumber, string _currency);

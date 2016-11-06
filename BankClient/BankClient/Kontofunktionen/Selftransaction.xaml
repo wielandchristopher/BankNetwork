@@ -9,12 +9,11 @@
     <Grid>
         <Button x:Name="Log_out" Content="Logout" Click="Logout" HorizontalAlignment="Left" Margin="309,10,-92,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="Back" Content="Zurück" Click="Zurück" HorizontalAlignment="Left" Margin="309,340,-92,-91" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="button" Content="Eingenübertrag" HorizontalAlignment="Left" Margin="10,289,0,-76" VerticalAlignment="Top" Width="141" Height="56" Click="uebertrag"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="115" Margin="23,61,0,0" VerticalAlignment="Top" Width="264"/>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="23,40,0,0" TextWrapping="Wrap" Text="Auf welches Kreditkonto soll der Betrag übertragen werden?" VerticalAlignment="Top" Width="326"/>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="23,194,0,0" TextWrapping="Wrap" Text="Welcher Betrag soll übertragen werden?" VerticalAlignment="Top" Width="326"/>
-        <TextBox x:Name="Betrag" HorizontalAlignment="Left" Height="23" Margin="23,215,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="85"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="113,216,0,0" TextWrapping="Wrap" Text="in €" VerticalAlignment="Top" Height="22"/>
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="115" Margin="23,121,0,0" VerticalAlignment="Top" Width="264"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="23,100,0,0" TextWrapping="Wrap" Text="Auf welches Kreditkonto soll der Betrag übertragen werden?" VerticalAlignment="Top" Width="326"/>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="23,37,0,0" TextWrapping="Wrap" Text="Welcher Betrag soll übertragen werden?" VerticalAlignment="Top" Width="326"/>
+        <TextBox x:Name="Betrag" HorizontalAlignment="Left" Height="23" Margin="23,58,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="85"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="113,58,0,0" TextWrapping="Wrap" Text="in €" VerticalAlignment="Top" Height="22"/>
 
     </Grid>
 </Window>

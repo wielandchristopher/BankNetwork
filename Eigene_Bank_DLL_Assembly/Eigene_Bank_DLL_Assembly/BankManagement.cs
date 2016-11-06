@@ -6,7 +6,7 @@ namespace Eigene_Bank_DLL_Assembly
 {
     public class BankManagement : IBankManagement
     {
-        const string path = "C:\\Users\\wiela\\Documents\\GitHub\\BankNetwork\\Eigene_Bank_DLL_Assembly\\Eigene_Bank_DLL_Assembly\\Bank.dll";
+        const string path = "C:\\Users\\christopher.wieland\\Documents\\GitHub\\BankNetwork\\Eigene_Bank_DLL_Assembly\\Eigene_Bank_DLL_Assembly\\Bank.dll";
 
         // Schnittstellen Funktionen für Customer Management
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
@@ -114,6 +114,9 @@ namespace Eigene_Bank_DLL_Assembly
 
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
         public static extern int deleteSparkontoVerfüger(IntPtr konto, IntPtr cust);
+
+        [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
+        public static extern void doSparbuchabheben(IntPtr konto, double amount);
 
         /**********************************************************************************************************************************
          *  Interface Methoden bezüglich des Customers
@@ -402,5 +405,10 @@ namespace Eigene_Bank_DLL_Assembly
             return 0;
         }
 
+        public void withdrawSavingsAcc(int _snumber, double _amount)
+        {
+            IntPtr savingsAcc = readSparKonto(_snumber);
+            doSparbuchabheben(savingsAcc, _amount);
+        }
     }
 }
