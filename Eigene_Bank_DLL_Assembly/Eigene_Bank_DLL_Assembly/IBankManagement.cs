@@ -31,7 +31,7 @@ namespace Eigene_Bank_DLL_Assembly
         double getDepositkontostand(int snumber);
         double getCreditkontostand(int snumber);
         int getDepositAccOwner(int snumber, int whichuser);
-        int getCreditAccOwner(int snumber, int whichuser);
+        int getCreditAccOwner(int cnumber, int whichuser);
 
         // Währungsmodul und Kontoauszug
         void createBankStatement(int _accNumber);

@@ -5,7 +5,9 @@
         static int custID;
         static int Accnumber = 0;
         static int CountAcc = 0;
+        static int CountUser = 0;
         static int maxCountAcc = 5;
+        static int maxCountUser = 5;
 
         public int getCustID()
         {
@@ -31,6 +33,14 @@
         {
             CountAcc = number;
         }
+        public int getCountUser()
+        {
+            return CountUser;
+        }
+        public void setCountUser(int number)
+        {
+            CountUser = number;
+        }
         public int getmaxCountAcc()
         {
             return maxCountAcc;
@@ -38,6 +48,14 @@
         public void setmaxCountAcc(int number)
         {
             maxCountAcc = number;
+        }
+        public int getmaxCountUser()
+        {
+            return maxCountUser;
+        }
+        public void setmaxCountUser(int number)
+        {
+            maxCountUser = number;
         }
     }
 }

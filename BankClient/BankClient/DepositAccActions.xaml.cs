@@ -65,5 +65,13 @@ namespace BankClient
             this.Close();
             main.ShowDialog();
         }
+
+        private void add_user(object sender, RoutedEventArgs e)
+        {
+
+            addUser addu = new addUser();
+            this.Close();
+            addu.ShowDialog();
+        }
     }
 }

@@ -266,7 +266,7 @@ namespace Eigene_Bank_DLL_Assembly
         {
             IntPtr customer = readUser(_id);
             int accNumber = getKontonummer(customer, _whichAccount);
-
+            
             return accNumber;
         }
 
@@ -372,7 +372,7 @@ namespace Eigene_Bank_DLL_Assembly
         }
         public int getCreditAccOwner(int cnumber, int whichuser)
         {
-            IntPtr creditAcc = readSparKonto(cnumber);
+            IntPtr creditAcc = readKreditKonto(cnumber);
             return getKreditkontoverfüger(creditAcc, whichuser);
 
         }
