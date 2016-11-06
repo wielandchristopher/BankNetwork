@@ -15,7 +15,8 @@
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="233,54,0,0" TextWrapping="Wrap" Text="Aktueller Kontostand:" VerticalAlignment="Top" Height="22" Width="149"/>
         <TextBlock x:Name="Kontostandy" HorizontalAlignment="Left" Margin="233,81,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="22" Width="56"/>
         <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="309,81,0,0" TextWrapping="Wrap" Text="in €" VerticalAlignment="Top" Height="22" Width="37"/>
-        <Button x:Name="button2" Content="Add User" Click="add_user" HorizontalAlignment="Left" Margin="272,158,0,0" VerticalAlignment="Top" Width="110" Height="49"/>
+        <Button x:Name="button2" Content="Add User" Click="add_user" HorizontalAlignment="Left" Margin="332,167,0,0" VerticalAlignment="Top" Width="52" Height="45"/>
+        <Button x:Name="button2_Copy" Content="delete User" Click="delete_user" HorizontalAlignment="Left" Margin="272,167,0,0" VerticalAlignment="Top" Width="52" Height="45"/>
 
     </Grid>
 </Window>

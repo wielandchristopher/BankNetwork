@@ -109,6 +109,12 @@ namespace Eigene_Bank_DLL_Assembly
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
         public static extern int getSparkontoverfüger(IntPtr konto, int whichcust);
 
+        [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int deleteKreditkontoVerfüger(IntPtr konto, IntPtr cust);
+
+        [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int deleteSparkontoVerfüger(IntPtr konto, IntPtr cust);
+
         /**********************************************************************************************************************************
          *  Interface Methoden bezüglich des Customers
          *  ============================================
@@ -376,5 +382,25 @@ namespace Eigene_Bank_DLL_Assembly
             return getKreditkontoverfüger(creditAcc, whichuser);
 
         }
+
+        public int deleteCreditAccUser(int Kontonummer, int additionalUser)
+        {
+            IntPtr creditAcc = readKreditKonto(Kontonummer);
+            IntPtr cust = readUser(additionalUser);
+
+            deleteKreditkontoVerfüger(creditAcc, cust);
+
+            return 0;
+        }
+        public int deleteSavingsAccUser(int Kontonummer, int additionalUser)
+        {
+            IntPtr savingsAcc = readSparKonto(Kontonummer);
+            IntPtr cust = readUser(additionalUser);
+
+            deleteSparkontoVerfüger(savingsAcc, cust);
+
+            return 0;
+        }
+
     }
 }

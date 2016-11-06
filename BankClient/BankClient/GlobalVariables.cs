@@ -6,6 +6,7 @@
         static int Accnumber = 0;
         static int CountAcc = 0;
         static int CountUser = 0;
+        static int CountaddUser = 0;
         static int maxCountAcc = 5;
         static int maxCountUser = 5;
 
@@ -56,6 +57,14 @@
         public void setmaxCountUser(int number)
         {
             maxCountUser = number;
+        }
+        public int getCountaddUser()
+        {
+            return CountaddUser;
+        }
+        public void setCountaddUser(int number)
+        {
+            CountaddUser = number;
         }
     }
 }

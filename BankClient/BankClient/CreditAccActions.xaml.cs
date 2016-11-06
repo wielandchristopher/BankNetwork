@@ -81,10 +81,16 @@ namespace BankClient
 
         private void add_user(object sender, RoutedEventArgs e)
         {
-
             addUser addu = new addUser();
             this.Close();
             addu.ShowDialog();
+        }
+
+        private void delete_user(object sender, RoutedEventArgs e)
+        {
+            deleteUser delu = new deleteUser();
+            this.Close();
+            delu.ShowDialog();
         }
     }
 }

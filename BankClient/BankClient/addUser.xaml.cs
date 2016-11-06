@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 using Eigene_Bank_DLL_Assembly;
 
 namespace BankClient
@@ -36,28 +24,28 @@ namespace BankClient
                 int _id = global.getAccnumber();
                 int x = 0;
 
-                if (Bank.getAccType(_id) == 0)
+            if (Bank.getAccType(_id) == 0)
+            {
+                for (int i = 1; i != global.getmaxCountUser() + 1; i++)
                 {
-                    for (int i = 1; i != global.getmaxCountUser() + 1; i++)
+                    if (Bank.getDepositAccOwner(_id, i) != 0)
                     {
-                        if (Bank.getDepositAccOwner(_id, i) != 0)
-                        {
-                            x++;
-                            global.setCountUser(x);
-                        }
+                        x++;
+                        global.setCountUser(x);
                     }
                 }
-                else if (Bank.getAccType(_id) == 1)
+            }
+            else if (Bank.getAccType(_id) == 1)
+            {
+                for (int j = 1; j != global.getmaxCountUser() + 1; j++)
                 {
-                    for (int j = 1; j != global.getmaxCountUser() + 1; j++)
+                    if (Bank.getCreditAccOwner(_id, j) != 0)
                     {
-                        if (Bank.getCreditAccOwner(_id, j) != 0)
-                        {
-                            x++;
-                            global.setCountUser(x);
-                        }
+                        x++;
+                        global.setCountUser(x);
                     }
-                }            
+                }
+            }            
         }
 
         private void Logout(object sender, RoutedEventArgs e)
