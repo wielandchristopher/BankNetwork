@@ -41,5 +41,6 @@ namespace Eigene_Bank_DLL_Assembly
         void createBankStatement(int _accNumber);
         void convertMoney(int _cNumber, string _currency);
         void showChangeOfCourse(int _cNumber);
+        double currencyConversion(int _currency, double _value); 
     }
 }

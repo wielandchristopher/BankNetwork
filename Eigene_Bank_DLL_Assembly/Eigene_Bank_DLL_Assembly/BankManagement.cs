@@ -118,6 +118,9 @@ namespace Eigene_Bank_DLL_Assembly
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
         public static extern void doSparbuchabheben(IntPtr konto, double amount);
 
+        [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
+        public static extern double waehrungsumrechnung(int _currency, double _value);
+
         /**********************************************************************************************************************************
          *  Interface Methoden bezüglich des Customers
          *  ============================================
@@ -409,6 +412,13 @@ namespace Eigene_Bank_DLL_Assembly
         {
             IntPtr savingsAcc = readSparKonto(_snumber);
             doSparbuchabheben(savingsAcc, _amount);
+        }
+
+        public double currencyConversion(int _currency, double _value)
+        {
+            double newCurrency = waehrungsumrechnung(_currency, _value);
+
+            return newCurrency;
         }
     }
 }
