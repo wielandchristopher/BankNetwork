@@ -121,6 +121,9 @@ namespace Eigene_Bank_DLL_Assembly
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
         public static extern double waehrungsumrechnung(int _currency, double _value);
 
+        [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
+        public static extern int getBIC();
+
         /**********************************************************************************************************************************
          *  Interface Methoden bezüglich des Customers
          *  ============================================
@@ -419,6 +422,11 @@ namespace Eigene_Bank_DLL_Assembly
             double newCurrency = waehrungsumrechnung(_currency, _value);
 
             return newCurrency;
+        }
+
+        public int getBankBIC()
+        {
+            return getBIC();
         }
     }
 }

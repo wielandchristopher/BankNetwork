@@ -42,5 +42,8 @@ namespace Eigene_Bank_DLL_Assembly
         void convertMoney(long _cNumber, string _currency);
         void showChangeOfCourse(long _cNumber);
         double currencyConversion(int _currency, double _value);
+
+        // BIC
+        int getBankBIC();
     }
 }
