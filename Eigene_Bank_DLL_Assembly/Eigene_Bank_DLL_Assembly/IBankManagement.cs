@@ -16,31 +16,31 @@ namespace Eigene_Bank_DLL_Assembly
         void deleteCustomer(int _id);
 
         // Interface Methoden des Account Managements
-        int createSavingsAccount(int _id);
-        int createCreditAccount(int _id);
-        void deleteSavingsAccount(int _sNumber, int _id);
-        void deleteCreditAccount(int _cNumber, int _id);
-        void depositCreditAcc(int _cNumber, String _usage, double _amount);
-        void depositSavingsAcc(int _sNumber, String _usage, double _amount);
-        void withdrawCreditAcc(int _cNumber, double _amount);
-        void transfer(int _cNumber, int _toAccNumber, String _usage, double _amount);
-        void addSavingsAccountUser(int _sNumber, int _id);
-        void addCreditAccountUser(int _cNumber, int _id);
-        int getBankAccountNumber(int _id, int _whichAccount);
-        int getAccType(int Accnumber);
-        double getDepositkontostand(int snumber);
-        double getCreditkontostand(int snumber);
-        int getDepositAccOwner(int snumber, int whichuser);
-        int getCreditAccOwner(int cnumber, int whichuser);
-        int deleteCreditAccUser(int Kontonummer, int additionalUser);
-        int deleteSavingsAccUser(int Kontonummer, int additionalUser);
+        long createSavingsAccount(int _id);
+        long createCreditAccount(int _id);
+        void deleteSavingsAccount(long _sNumber, int _id);
+        void deleteCreditAccount(long _cNumber, int _id);
+        void depositCreditAcc(long _cNumber, String _usage, double _amount);
+        void depositSavingsAcc(long _sNumber, String _usage, double _amount);
+        void withdrawCreditAcc(long _cNumber, double _amount);
+        void transfer(long _cNumber, long _toAccNumber, String _usage, double _amount);
+        void addSavingsAccountUser(long _sNumber, int _id);
+        void addCreditAccountUser(long _cNumber, int _id);
+        long getBankAccountNumber(int _id, int _whichAccount);
+        int getAccType(long Accnumber);
+        double getDepositkontostand(long snumber);
+        double getCreditkontostand(long snumber);
+        int getDepositAccOwner(long snumber, int whichuser);
+        int getCreditAccOwner(long cnumber, int whichuser);
+        int deleteCreditAccUser(long Kontonummer, int additionalUser);
+        int deleteSavingsAccUser(long Kontonummer, int additionalUser);
 
-        void withdrawSavingsAcc(int _snumber, double _amount);
+        void withdrawSavingsAcc(long _snumber, double _amount);
 
         // Währungsmodul und Kontoauszug
-        void createBankStatement(int _accNumber);
-        void convertMoney(int _cNumber, string _currency);
-        void showChangeOfCourse(int _cNumber);
-        double currencyConversion(int _currency, double _value); 
+        void createBankStatement(long _accNumber);
+        void convertMoney(long _cNumber, string _currency);
+        void showChangeOfCourse(long _cNumber);
+        double currencyConversion(int _currency, double _value);
     }
 }
