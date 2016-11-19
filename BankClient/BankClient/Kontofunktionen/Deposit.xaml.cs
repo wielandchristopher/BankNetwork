@@ -35,7 +35,7 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
-            int Kontonummer = global.getAccnumber();
+            long Kontonummer = global.getAccnumber();
 
             if (Bank.getAccType(Kontonummer) == 1)
             {
@@ -75,11 +75,11 @@ namespace BankClient
             else {
                 double betrag = double.Parse(betr, System.Globalization.CultureInfo.InvariantCulture);
 
-                int Kontonummer = global.getAccnumber();
+                long Kontonummer = global.getAccnumber();
 
                 if (Bank.getAccType(Kontonummer) == 1)
                 {
-                int Kntnumber = global.getAccnumber();
+                long Kntnumber = global.getAccnumber();
                 Bank.depositCreditAcc(Kntnumber, verwe, betrag);
                 MessageBox.Show("Der Betrag wurde erfolgreich eingezahlt");
                 CreditAccActions cKonto = new CreditAccActions();
@@ -88,7 +88,7 @@ namespace BankClient
                 }
                 else if(Bank.getAccType(Kontonummer) == 0)
                 {
-                    int Kntnumber = global.getAccnumber();
+                    long Kntnumber = global.getAccnumber();
                     Bank.depositSavingsAcc(Kntnumber, verwe, betrag);
                     MessageBox.Show("Der Betrag wurde erfolgreich eingezahlt");                   
                     DepositAccActions dKonto = new DepositAccActions();

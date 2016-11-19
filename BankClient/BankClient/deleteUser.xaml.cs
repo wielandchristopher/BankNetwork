@@ -17,7 +17,7 @@ namespace BankClient
             InitializeComponent();
 
             int _id = global.getCustID();
-            int Kontonummer = global.getAccnumber();
+            long Kontonummer = global.getAccnumber();
             int x = 0;
 
             if (Bank.getAccType(Kontonummer) == 0)
@@ -47,7 +47,7 @@ namespace BankClient
             {
                 for (int i = 2; i != x + 2; i++)
                 {
-                    int Kontonummerx = global.getAccnumber();
+                    long Kontonummerx = global.getAccnumber();
 
                     if (Bank.getAccType(Kontonummerx) == 1)
                     {
@@ -84,7 +84,7 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
-            int Kontonummer = global.getAccnumber();
+            long Kontonummer = global.getAccnumber();
 
             if (Bank.getAccType(Kontonummer) == 1)
             {
@@ -107,7 +107,7 @@ namespace BankClient
                   "Sicherheitsabfrage", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
 
-                int Kontonummer = global.getAccnumber();
+                long Kontonummer = global.getAccnumber();
 
                 if (Bank.getAccType(Kontonummer) == 1)
                 {

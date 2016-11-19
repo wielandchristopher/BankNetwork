@@ -43,7 +43,7 @@ namespace BankClient
             if (existAccount(_id) == true) {
                 for (int i = 0; i != 5; i++)
                 {
-                    int Kontonummer = Bank.getBankAccountNumber(_id, i+1);
+                    long Kontonummer = Bank.getBankAccountNumber(_id, i+1);
 
                     if (Bank.getAccType(Kontonummer) == 1)
                     {

@@ -3,7 +3,7 @@
     public class GlobalVariables
     {
         static int custID;
-        static int Accnumber = 0;
+        static long Accnumber = 0;
         static int CountAcc = 0;
         static int CountUser = 0;
         static int CountaddUser = 0;
@@ -18,11 +18,11 @@
         {
             custID = _ID;
         }
-        public int getAccnumber()
+        public long getAccnumber()
         {
             return Accnumber;
         }
-        public void setAccnumber(int number)
+        public void setAccnumber(long number)
         {
             Accnumber = number;
         }

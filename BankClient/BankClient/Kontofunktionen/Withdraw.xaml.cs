@@ -44,7 +44,7 @@ namespace BankClient
             if (IsNumeric(Betrag.Text) == true)
             {
                 double betrag = double.Parse(Betrag.Text, System.Globalization.CultureInfo.InvariantCulture);
-                int Kntnumber = global.getAccnumber();
+                long Kntnumber = global.getAccnumber();
                 Bank.withdrawCreditAcc(Kntnumber, betrag);
                 MessageBox.Show("Der Betrag wurde erfolgreich abgebucht");
                 CreditAccActions cKonto = new CreditAccActions();

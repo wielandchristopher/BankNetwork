@@ -33,7 +33,7 @@ namespace BankClient
         {
             InitializeComponent();
             int CustID = global.getCustID();
-            int Kontonummer = global.getAccnumber();
+            long Kontonummer = global.getAccnumber();
             int x = 0;
 
             for (int i = 1; i != global.getmaxCountUser()+1; i++)
@@ -49,7 +49,7 @@ namespace BankClient
             {
                 for (int i = 1; i != x+1; i++)
                 {
-                    int number = Bank.getBankAccountNumber(CustID, i);
+                    long number = Bank.getBankAccountNumber(CustID, i);
                     ListBoxItem item = new ListBoxItem();
                     item.Content = "Kreditkonto: \t\t\t\t\t\t\t\t            " + number;
                     item.Tag = number;
