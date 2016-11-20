@@ -17,41 +17,41 @@ namespace BankClient
             InitializeComponent();
 
             int _id = global.getCustID();
-            long Kontonummer = global.getAccnumber();
+            string Kontonummer = global.getAccnumber();
             int x = 0;
 
             if (Bank.getAccType(Kontonummer) == 0)
             {
                 for (int i = 2; i != global.getmaxCountUser(); i++)
                 {
-                    if (Bank.getDepositAccOwner(Kontonummer, i) != 0)
-                    {
-                        x++;
-                        global.setCountaddUser(x);
-                    }
+                    //if (Bank.getDepositAccOwner(Kontonummer, i) != 0)
+                    //{
+                    //    x++;
+                    //    global.setCountaddUser(x);
+                    //}
                 }
             }
             else if (Bank.getAccType(Kontonummer) == 1)
             {
-                for (int j = 2; j != global.getmaxCountUser(); j++)
-                {
-                    if (Bank.getCreditAccOwner(Kontonummer, j) != 0)
-                    {
-                        x++;
-                        global.setCountaddUser(x);
-                    }
-                }
+                //for (int j = 2; j != global.getmaxCountUser(); j++)
+                //{
+                //    if (Bank.getCreditAccOwner(Kontonummer, j) != 0)
+                //    {
+                //        x++;
+                //        global.setCountaddUser(x);
+                //    }
+                //}
             }
 
             if (x > 0)
             {
                 for (int i = 2; i != x + 2; i++)
                 {
-                    long Kontonummerx = global.getAccnumber();
+                    string Kontonummerx = global.getAccnumber();
 
                     if (Bank.getAccType(Kontonummerx) == 1)
                     {
-                        int CustID = Bank.getCreditAccOwner(Kontonummerx, i);
+                        int CustID = 100;// Bank.getCreditAccOwner(Kontonummerx, i);
                         ListBoxItem item = new ListBoxItem();
                         item.Content = "User mit ID: \t\t\t\t\t\t\t\t\t           " + CustID;
                         item.Tag = CustID;
@@ -61,7 +61,7 @@ namespace BankClient
                     }
                     else if (Bank.getAccType(Kontonummerx) == 0)
                     {
-                        int CustID = Bank.getDepositAccOwner(Kontonummerx, i);
+                        int CustID = 100;// Bank.getDepositAccOwner(Kontonummerx, i);
                         ListBoxItem item = new ListBoxItem();
                         item.Content = "User mit ID: \t\t\t\t\t\t\t\t\t           " + CustID;
                         item.Tag = CustID;
@@ -84,7 +84,7 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
-            long Kontonummer = global.getAccnumber();
+            string Kontonummer = global.getAccnumber();
 
             if (Bank.getAccType(Kontonummer) == 1)
             {
@@ -107,7 +107,7 @@ namespace BankClient
                   "Sicherheitsabfrage", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
 
-                long Kontonummer = global.getAccnumber();
+                string Kontonummer = global.getAccnumber();
 
                 if (Bank.getAccType(Kontonummer) == 1)
                 {

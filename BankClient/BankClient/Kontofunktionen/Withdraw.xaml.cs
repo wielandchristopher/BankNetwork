@@ -33,7 +33,7 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
-            global.setAccnumber(0);
+            global.setAccnumber("0");
             CreditAccActions cKonto = new CreditAccActions();
             this.Close();
             cKonto.ShowDialog();
@@ -44,7 +44,7 @@ namespace BankClient
             if (IsNumeric(Betrag.Text) == true)
             {
                 double betrag = double.Parse(Betrag.Text, System.Globalization.CultureInfo.InvariantCulture);
-                long Kntnumber = global.getAccnumber();
+                string Kntnumber = global.getAccnumber();
                 Bank.withdrawCreditAcc(Kntnumber, betrag);
                 MessageBox.Show("Der Betrag wurde erfolgreich abgebucht");
                 CreditAccActions cKonto = new CreditAccActions();

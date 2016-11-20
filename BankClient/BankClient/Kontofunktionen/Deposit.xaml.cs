@@ -27,7 +27,7 @@ namespace BankClient
         private void Logout(object sender, RoutedEventArgs e)
         {
             global.setCustID(0);
-            global.setAccnumber(0);
+            global.setAccnumber("0");
             MainWindow main = new MainWindow();
             this.Close();
             main.ShowDialog();
@@ -35,18 +35,18 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
-            long Kontonummer = global.getAccnumber();
+            string Kontonummer = global.getAccnumber();
 
             if (Bank.getAccType(Kontonummer) == 1)
             {
-                  global.setAccnumber(0);
+                  global.setAccnumber("0");
                   CreditAccActions cKonto = new CreditAccActions();
                   this.Close();
                   cKonto.ShowDialog();
             }
             else if(Bank.getAccType(Kontonummer) == 0)
             {
-                global.setAccnumber(0);
+                global.setAccnumber("0");
                 DepositAccActions dKonto = new DepositAccActions();
                 this.Close();
                 dKonto.ShowDialog();
@@ -75,11 +75,11 @@ namespace BankClient
             else {
                 double betrag = double.Parse(betr, System.Globalization.CultureInfo.InvariantCulture);
 
-                long Kontonummer = global.getAccnumber();
+                string Kontonummer = global.getAccnumber();
 
                 if (Bank.getAccType(Kontonummer) == 1)
                 {
-                long Kntnumber = global.getAccnumber();
+                string Kntnumber = global.getAccnumber();
                 Bank.depositCreditAcc(Kntnumber, verwe, betrag);
                 MessageBox.Show("Der Betrag wurde erfolgreich eingezahlt");
                 CreditAccActions cKonto = new CreditAccActions();
@@ -88,7 +88,7 @@ namespace BankClient
                 }
                 else if(Bank.getAccType(Kontonummer) == 0)
                 {
-                    long Kntnumber = global.getAccnumber();
+                    string Kntnumber = global.getAccnumber();
                     Bank.depositSavingsAcc(Kntnumber, verwe, betrag);
                     MessageBox.Show("Der Betrag wurde erfolgreich eingezahlt");                   
                     DepositAccActions dKonto = new DepositAccActions();

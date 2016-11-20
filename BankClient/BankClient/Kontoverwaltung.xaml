@@ -9,7 +9,7 @@
     <Grid Background="#FFA2C5E8">
         <Button x:Name="Log_out" Background="#FFDA8383" Content="Logout" Click="Logout" Margin="887,40,56.6,0" VerticalAlignment="Top" Height="88" FontSize="30"/>
         <Button x:Name="Back" Content="Zurück" Click="Zurück" Margin="637,544,61.6,0" VerticalAlignment="Top" Width="500" Height="88" FontSize="30"/>
-        <Button x:Name="NewCreditAcc" Content="neues Kreditkonto?" HorizontalAlignment="Left" Margin="66,544,0,0" VerticalAlignment="Top" Width="222" Height="88" Click="NewCreditAcc_Click" FontSize="24" />
+        <Button x:Name="NewCreditAcc" Content="neues Kreditkonto?" HorizontalAlignment="Left" Margin="66,544,0,37" Width="222" Click="NewCreditAcc_Click" FontSize="24" />
         <Button x:Name="NewDepositAcc" Content="neues Sparkonto?" HorizontalAlignment="Left" Margin="349,544,0,0" VerticalAlignment="Top" Width="222" Height="88" Click="NewDepositAcc_Click" FontSize="24"/>
         <ListBox x:Name="listBox" Height="306" Margin="66,171,56.6,0" VerticalAlignment="Top"/>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="66,124,0,0" TextWrapping="Wrap" Text="Hier werden deine Konten aufgelistet. Klicken Sie auf eines für weitere Aktionen:" VerticalAlignment="Top" FontSize="22" Height="42" Width="780"/>

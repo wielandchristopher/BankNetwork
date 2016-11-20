@@ -36,7 +36,7 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
-            long Kontonummer = global.getAccnumber();
+            string Kontonummer = global.getAccnumber();
 
             if (Bank.getAccType(Kontonummer) == 1)
             {
@@ -68,9 +68,9 @@ namespace BankClient
             }
             else
             {
-                int zielkonto = int.Parse(zielknt.Text);
+                string zielkonto = zielknt.Text;
                 double betrag = double.Parse(Betrag.Text, System.Globalization.CultureInfo.InvariantCulture);
-                long Kntnumber = global.getAccnumber();
+                string Kntnumber = global.getAccnumber();
                 string verwe = Verwendung.Text;
 
                 Bank.transfer(Kntnumber, zielkonto, verwe, betrag);

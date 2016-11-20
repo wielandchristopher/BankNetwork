@@ -21,32 +21,32 @@ namespace BankClient
         {
             InitializeComponent();
 
-                long _id = global.getAccnumber();
+                string _id = global.getAccnumber();
                 int x = 0;
 
             
             
             if (Bank.getAccType(_id) == 0)
             {
-                for (int i = 1; i != global.getmaxCountUser() + 1; i++)
-                {
-                    if (Bank.getDepositAccOwner(_id, i) != 0)
-                    {
-                        x++;
-                        global.setCountUser(x);
-                    }
-                }
+                //for (int i = 1; i != global.getmaxCountUser() + 1; i++)
+                //{
+                //    if (Bank.getDepositAccOwner(_id, i) != 0)
+                //    {
+                //        x++;
+                //        global.setCountUser(x);
+                //    }
+                //}
             }
             else if (Bank.getAccType(_id) == 1)
             {
-                for (int j = 1; j != global.getmaxCountUser() + 1; j++)
-                {
-                    if (Bank.getCreditAccOwner(_id, j) != 0)
-                    {
-                        x++;
-                        global.setCountUser(x);
-                    }
-                }
+                //for (int j = 1; j != global.getmaxCountUser() + 1; j++)
+                //{
+                //    if (Bank.getCreditAccOwner(_id, j) != 0)
+                //    {
+                //        x++;
+                //        global.setCountUser(x);
+                //    }
+                //}
             }            
         }
 
@@ -61,7 +61,7 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
-            long Kontonummer = global.getAccnumber();
+            string Kontonummer = global.getAccnumber();
 
             if (Bank.getAccType(Kontonummer) == 1)
             {
@@ -81,7 +81,7 @@ namespace BankClient
         {
             if (global.getCountUser() == global.getmaxCountUser()) {
 
-                long Kontonummer = global.getAccnumber();
+                string Kontonummer = global.getAccnumber();
 
                 MessageBox.Show("Ein Konto kann nur maximal 5 Verfüger besitzen");
 
@@ -106,7 +106,7 @@ namespace BankClient
                 else
                 {
                     int CustID = Bank.getCustomer(Vorname.Text, Nachname.Text, Geburtsdatum.Text);
-                    long Kontonummer = global.getAccnumber();
+                    string Kontonummer = global.getAccnumber();
 
                     if (Bank.getAccType(Kontonummer) == 1)
                     {

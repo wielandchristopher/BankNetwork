@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Eigene_Bank_DLL_Assembly;
+using Newtonsoft.Json.Linq;
 
 namespace BankClient
 {
@@ -33,29 +34,46 @@ namespace BankClient
         {
             InitializeComponent();
             int CustID = global.getCustID();
-            long Kontonummer = global.getAccnumber();
+            string Kontonummer = global.getAccnumber();
             int x = 0;
 
-            for (int i = 1; i != global.getmaxCountUser()+1; i++)
-            {
-                if ((Bank.getBankAccountNumber(CustID, i) != 0) && (Bank.getAccType(Bank.getBankAccountNumber(CustID, i)) == 1))
-                {
-                    x++;
-                    global.setCountAcc(x);
-                }
-            }
 
-            if (x > 0)
+            string Kontonummern = Bank.getBankAccountNumbers(CustID);
+
+            if (Kontonummern.Length > 2)
             {
-                for (int i = 1; i != x+1; i++)
+                JArray newArr = JArray.Parse(Kontonummern);
+                global.setCountAcc(newArr.Count);
+            }
+            //for (int i = 1; i != global.getmaxCountUser()+1; i++)
+            //{
+            //    if ((Bank.getBankAccountNumber(CustID, i) != 0) && (Bank.getAccType(Bank.getBankAccountNumber(CustID, i)) == 1))
+            //    {
+            //        x++;
+            //        global.setCountAcc(x);
+            //    }
+            //}
+            x = global.getCountAcc();
+                if (x > 0)
+            {
+
+                Kontonummern = Bank.getBankAccountNumbers(CustID);
+
+                if (Kontonummern.Length > 2)
                 {
-                    long number = Bank.getBankAccountNumber(CustID, i);
-                    ListBoxItem item = new ListBoxItem();
-                    item.Content = "Kreditkonto: \t\t\t\t\t\t\t\t            " + number;
-                    item.Tag = number;
-                    item.FontSize = 24;
-                    item.Selected += new RoutedEventHandler(uebertrag);
-                    listBox.Items.Add(item);
+                    JArray newArr = JArray.Parse(Kontonummern);
+
+                    foreach (JObject jitem in newArr.Children())
+                    {
+                        string number = jitem.GetValue("Kontonr").ToString();
+                        ListBoxItem item = new ListBoxItem();
+                        item.Content = "Kreditkonto: \t\t\t\t\t\t\t\t            " + number;
+                        item.Tag = number;
+                        item.FontSize = 24;
+                        item.Selected += new RoutedEventHandler(uebertrag);
+                        listBox.Items.Add(item);
+                    }
+
                 }
             }
         }
@@ -63,7 +81,7 @@ namespace BankClient
         private void Logout(object sender, RoutedEventArgs e)
         {
             global.setCustID(0);
-            global.setAccnumber(0);
+            global.setAccnumber("0");
             MainWindow main = new MainWindow();
             this.Close();
             main.ShowDialog();
@@ -80,7 +98,7 @@ namespace BankClient
         {
             string Betr = Betrag.Text;
             ListBoxItem item = (ListBoxItem)sender;
-            int zielkonto = (int)item.Tag;
+            string zielkonto = (string)item.Tag;
 
             if(Betr == "")
             {

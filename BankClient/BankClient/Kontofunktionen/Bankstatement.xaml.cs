@@ -28,7 +28,7 @@ namespace BankClient
 
         private void Zurück(object sender, RoutedEventArgs e)
         {
-            long Kontonummer = global.getAccnumber();
+            string Kontonummer = global.getAccnumber();
             if (Bank.getAccType(Kontonummer) == 1)
             {
                 CreditAccActions cKonto = new CreditAccActions();
@@ -42,16 +42,16 @@ namespace BankClient
                 dKonto.ShowDialog();
             }
 
-            global.setAccnumber(0);
+            global.setAccnumber("0");
         }
 
         private void auszug(object sender, RoutedEventArgs e)
         {
-            long Kontonummer = global.getAccnumber();
+            string Kontonummer = global.getAccnumber();
 
             if (Bank.getAccType(Kontonummer) == 1)
             {
-                long Kntnumber = global.getAccnumber();
+                string Kntnumber = global.getAccnumber();
                 Bank.createBankStatement(Kntnumber);
                 MessageBox.Show("Der Kontoauszug wurde erstellt");
                 CreditAccActions cKonto = new CreditAccActions();
@@ -60,10 +60,10 @@ namespace BankClient
             }
             else if (Bank.getAccType(Kontonummer) == 0)
             {
-                long Kntnumber = global.getAccnumber();
+                string Kntnumber = global.getAccnumber();
                 Bank.createBankStatement(Kntnumber);
                 MessageBox.Show("Der Kontoauszug wurde erstellt");
-                global.setAccnumber(0);
+                global.setAccnumber("0");
                 DepositAccActions dKonto = new DepositAccActions();
                 this.Close();
                 dKonto.ShowDialog();

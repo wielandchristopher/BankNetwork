@@ -2,7 +2,7 @@
 using System.IO;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json;
-
+using Newtonsoft.Json.Linq;
 
 namespace Eigene_Bank_DLL_Assembly
 {
@@ -316,6 +316,7 @@ namespace Eigene_Bank_DLL_Assembly
 
         public String getBankAccountNumbers(int _id)
         {
+            
             String s = getUserKonten(_id);
             
             return s;
@@ -463,6 +464,39 @@ namespace Eigene_Bank_DLL_Assembly
         public int getBankBIC()
         {
             return getBIC();
+        }
+
+        public bool BankUserKontoExists(int userid, String ktnr)
+        {
+            //string s = getBankAccountNumbers(userid);
+            //JObject newObj = JObject.Parse(s);
+
+
+            if(UserKontoExists(userid, ktnr)==0)
+            {
+                return true;
+            }else
+            {
+                return false;
+            }
+            //if (s.Length > 2)
+            //{
+
+         
+            //    JArray newArr = JArray.Parse(s);
+
+            //    foreach(JObject item in newArr.Children())
+            //    {
+
+            //        if (item.GetValue("Kontonr").ToString().Equals(ktnr))
+            //        {
+            //            return true;
+            //        }
+            //    }
+            //}
+            // todog
+
+            return false;
         }
     }
 }

@@ -63,7 +63,7 @@ namespace BankClient
 
         private void loeschen(object sender, RoutedEventArgs e)
         {
-            long Kontonummer = global.getAccnumber();
+            string Kontonummer = global.getAccnumber();
             int user = global.getCustID();
             if (Bank.getCreditkontostand(Kontonummer) == 0)
             {
