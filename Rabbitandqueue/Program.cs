@@ -16,7 +16,7 @@ namespace sst.bank.rabbit
         static void Main(string[] args)
         {
             //Use the queue name of the receiver bank as the receiverBic
-            var remoteTransaction = new RemoteTransaction("senderIban", "senderBic", "receiverIban", "71", 10, ECurrency.Euro);
+            var remoteTransaction = new RemoteTransaction("senderIban", "senderBic", "receiverIban", "81", 10, ECurrency.Euro);
 
             Send(remoteTransaction);
             Receive();
@@ -25,7 +25,7 @@ namespace sst.bank.rabbit
         static void Send(RemoteTransaction transaction)
         {
             var factory = new ConnectionFactory();
-            factory.Uri = "amqp://user70:User70ITS2016!@rabbit.binna.eu/";  //Insert your own user and password
+            factory.Uri = "amqp://user80:User80ITS2016!@rabbit.binna.eu/";  //Insert your own user and password
 
             using (var connection = factory.CreateConnection())
             using (var channel = connection.CreateModel())
@@ -50,13 +50,13 @@ namespace sst.bank.rabbit
         static void Receive()
         {
             var factory = new ConnectionFactory();
-            factory.Uri = "amqp://user70:User70ITS2016!@rabbit.binna.eu/";
+            factory.Uri = "amqp://user80:User80ITS2016!@rabbit.binna.eu/";
 
             using (var connection = factory.CreateConnection())
             {
                 using (var channel = connection.CreateModel())
                 {
-                    channel.QueueDeclare(queue: "71",
+                    channel.QueueDeclare(queue: "81",
                                  durable: true, //Always use durable: true, because the queue on the server is configured this way. Otherwise you'll not be able to connect
                                  exclusive: false,
                                  autoDelete: false,
@@ -75,7 +75,7 @@ namespace sst.bank.rabbit
                         PrintTransaction(transaction);
                     };
 
-                    channel.BasicConsume(queue: "71",
+                    channel.BasicConsume(queue: "81",
                                          noAck: false,  //If noAck: false the command channel.BasicAck (see above) has to be implemented. Don't set it true, or the message will not get resubmitted, if the bank was offline
                                          consumer: consumer);
 
