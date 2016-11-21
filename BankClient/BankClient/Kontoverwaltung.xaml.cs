@@ -3,6 +3,7 @@ using System.Windows;
 using Eigene_Bank_DLL_Assembly;
 using System.Windows.Controls;
 using Newtonsoft.Json.Linq;
+using System.Collections.Generic;
 
 namespace BankClient
 {
@@ -19,67 +20,41 @@ namespace BankClient
             string ktnr = global.getAccnumber();
 
             return Bank.BankUserKontoExists(_idx, ktnr);
-
-            //for (int i = 1; i< global.getmaxCountAcc()+1; i++)
-            //{
-            //    if (Bank.getBankAccountNumbers(global.getCustID(), i) != 0)
-            //    {
-            //        return true;
-            //    }
-            //}        
-            //return false;
         }
-
-     
 
         public Kontoverwaltung()
         {
             InitializeComponent();
 
             int _id = global.getCustID();
-            // int x = 0;
 
-            // ListBoxItem item = new ListBoxItem();
+            string Kontonummern = Bank.getBankAccountNumbers(_id);
 
-            //for (int i = 0; i != global.getmaxCountAcc(); i++)
-            //{
-            //    if (Bank.getBankAccountNumber(_id, i + 1) != 0)
-            //    {
-            //        x++;
-            //        global.setCountAcc(x);
-            //    }
-            //}
+            if (Kontonummern.Length > 2)
+            {
+                JArray newArr = JArray.Parse(Kontonummern);
 
-            if (existAccount(_id)) {
-
-                string Kontonummern = Bank.getBankAccountNumbers(_id);
-                
-                if (Kontonummern.Length > 2)
+                foreach (JObject jitem in newArr.Children())
                 {
-                    JArray newArr = JArray.Parse(Kontonummern);
+                    string Kontonummer = jitem.GetValue("Kontonr").ToString();
 
-                    foreach (JObject jitem in newArr.Children())
+                    if (Bank.getAccType(Kontonummer) == 1)
                     {
-                        string Kontonummer = jitem.GetValue("Kontonr").ToString();
-
-                        if (Bank.getAccType(Kontonummer) == 1)
-                        {
-                            ListBoxItem item = new ListBoxItem();
-                            item.Tag = Kontonummer;
-                            item.FontSize = 24;
-                            item.Content = "Kreditkonto: \t\t\t\t\t\t\t\t            " + Kontonummer;
-                            item.Selected += new RoutedEventHandler(CreditAccountsettings);
-                            listBox.Items.Add(item);
-                        }
-                        else if (Bank.getAccType(Kontonummer) == 0)
-                        {
-                            ListBoxItem item = new ListBoxItem();
-                            item.Tag = Kontonummer;
-                            item.FontSize = 24;
-                            item.Content = "Sparkonto: \t\t\t\t\t\t\t\t            " + Kontonummer;
-                            item.Selected += new RoutedEventHandler(DepositAccountsettings);
-                            listBox.Items.Add(item);
-                        }
+                        ListBoxItem item = new ListBoxItem();
+                        item.Tag = Kontonummer;
+                        item.FontSize = 24;
+                        item.Content = "Kreditkonto: \t\t\t\t\t\t\t\t            " + Kontonummer;
+                        item.Selected += new RoutedEventHandler(CreditAccountsettings);
+                        listBox.Items.Add(item);
+                    }
+                    else if (Bank.getAccType(Kontonummer) == 0)
+                    {
+                        ListBoxItem item = new ListBoxItem();
+                        item.Tag = Kontonummer;
+                        item.FontSize = 24;
+                        item.Content = "Sparkonto: \t\t\t\t\t\t\t\t            " + Kontonummer;
+                        item.Selected += new RoutedEventHandler(DepositAccountsettings);
+                        listBox.Items.Add(item);
                     }
                 }
             }
