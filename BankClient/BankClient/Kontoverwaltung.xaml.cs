@@ -16,7 +16,6 @@ namespace BankClient
 
         bool existAccount(int _idx)
         {
-
             string ktnr = global.getAccnumber();
 
             return Bank.BankUserKontoExists(_idx, ktnr);
@@ -38,7 +37,9 @@ namespace BankClient
             InitializeComponent();
 
             int _id = global.getCustID();
-            int x = 0;
+            // int x = 0;
+
+            // ListBoxItem item = new ListBoxItem();
 
             //for (int i = 0; i != global.getmaxCountAcc(); i++)
             //{
@@ -50,8 +51,6 @@ namespace BankClient
             //}
 
             if (existAccount(_id)) {
-
-
 
                 string Kontonummern = Bank.getBankAccountNumbers(_id);
                 
@@ -83,8 +82,8 @@ namespace BankClient
                         }
                     }
                 }
-                }
             }
+        }
 
         private void Logout(object sender, RoutedEventArgs e)
         {

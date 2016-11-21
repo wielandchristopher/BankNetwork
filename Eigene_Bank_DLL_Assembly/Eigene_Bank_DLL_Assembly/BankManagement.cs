@@ -70,7 +70,7 @@ namespace Eigene_Bank_DLL_Assembly
         public static extern IntPtr getKreditKontonummer(IntPtr konto);
 
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
-        public static extern String getSparKontonummer(IntPtr konto);
+        public static extern IntPtr getSparKontonummer(IntPtr konto);
 
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
         public static extern IntPtr readSparKonto(String ktnr);
@@ -224,11 +224,11 @@ namespace Eigene_Bank_DLL_Assembly
         * *********************************************************************************************************************************/
 
         // Methode returned Kontonummer
-        public String createSavingsAccount(int _id)
+        public string createSavingsAccount(int _id)
         {
             IntPtr customer = readUser(_id);
             IntPtr savingsAccount = NeuesSparkonto(customer);
-            String accountNumber = getSparKontonummer(savingsAccount);
+            String accountNumber = Marshal.PtrToStringAnsi(getSparKontonummer(savingsAccount));
 
             return accountNumber;
         }

@@ -16,7 +16,7 @@ namespace Eigene_Bank_DLL_Assembly
         void deleteCustomer(int _id);
 
         // Interface Methoden des Account Managements
-        String createSavingsAccount(int _id);
+        string createSavingsAccount(int _id);
         string createCreditAccount(int _id);
         void deleteSavingsAccount(String _sNumber, int _id);
         void deleteCreditAccount(String _cNumber, int _id);
@@ -26,7 +26,7 @@ namespace Eigene_Bank_DLL_Assembly
         void transfer(String _cNumber, String _toAccNumber, String _usage, double _amount);
         void addSavingsAccountUser(String _sNumber, int _id);
         void addCreditAccountUser(String _cNumber, int _id);
-        String getBankAccountNumbers(int _id);
+        string getBankAccountNumbers(int _id);
         int getAccType(String Accnumber);
         double getDepositkontostand(String snumber);
         double getCreditkontostand(String snumber);
