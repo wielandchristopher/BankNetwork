@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using Eigene_Bank_DLL_Assembly;
 
 namespace BankClient
 {
@@ -12,6 +13,9 @@ namespace BankClient
         public MainWindow()
         {
             InitializeComponent();
+
+            BankManagement Bank = new BankManagement();
+            Bank.receive();
         }
 
         private void register(object sender, RoutedEventArgs e)

@@ -7,8 +7,6 @@ namespace BankClient
     /// Interaktionslogik für Transfer.xaml
     /// </summary>
 
-
-
     public partial class Transfer : Window
     {
         GlobalVariables global = new GlobalVariables();
@@ -68,12 +66,31 @@ namespace BankClient
             }
             else
             {
-                string zielkonto = zielknt.Text;
-                double betrag = double.Parse(Betrag.Text, System.Globalization.CultureInfo.InvariantCulture);
                 string Kntnumber = global.getAccnumber();
+                string bic = Bank.getBankBIC().ToString();
+                string zielkonto = zielknt.Text;
+                string zielkonto_BIC = zielknt_BIC.Text;
                 string verwe = Verwendung.Text;
+                double betrag = double.Parse(Betrag.Text, System.Globalization.CultureInfo.InvariantCulture);
 
-                Bank.transfer(Kntnumber, zielkonto, verwe, betrag);
+                Transaction transaction = new Transaction(Kntnumber, bic, zielkonto, zielkonto_BIC, betrag, ECurrency.Euro, verwe);    // zur zeit nur euro
+
+                if(betrag > 0)
+                {
+                    // credit
+                    if (global.getAcctype() == 0)
+                    {
+                        Bank.withdrawCreditAcc(Kntnumber, betrag);
+                    }
+                    else
+                    {
+                        Bank.withdrawCreditAcc(Kntnumber, betrag);
+                    }
+                }
+
+                Bank.send(transaction);     
+                Bank.receive();
+
                 MessageBox.Show("Der Betrag wurde erfolgreich überwiesen");
                 CreditAccActions cKonto = new CreditAccActions();
                 this.Close();

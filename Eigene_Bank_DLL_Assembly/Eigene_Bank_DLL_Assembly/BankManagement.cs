@@ -3,6 +3,9 @@ using System.IO;
 using System.Runtime.InteropServices;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using RabbitMQ.Client;
+using RabbitMQ.Client.Events;
+using System.Threading;
 
 namespace Eigene_Bank_DLL_Assembly
 {
@@ -474,7 +477,8 @@ namespace Eigene_Bank_DLL_Assembly
             if(UserKontoExists(userid, ktnr)==0)
             {
                 return true;
-            }else
+            }
+            else
             {
                 return false;
             }
@@ -495,7 +499,208 @@ namespace Eigene_Bank_DLL_Assembly
             //}
             // todog
 
-            return false;
+            // return false;
+        }
+
+        // RabbitMQ
+        public void send(Transaction transaction)
+        {
+            var factory = new ConnectionFactory();
+            factory.Uri = "amqp://user80:User80ITS2016!@rabbit.binna.eu/";  //Insert your own user and password
+
+            using (var connection = factory.CreateConnection())
+            using (var channel = connection.CreateModel())
+            {
+                var transactionString = JsonConvert.SerializeObject(transaction);   //Awesome function
+
+                var properties = channel.CreateBasicProperties();
+                properties.Persistent = true;
+
+                if(transaction.IsResponding == false)
+                {
+                    channel.BasicPublish(exchange: "bank.production", //Choose between bank.development and bank.production depending of the queue (e.g. 70 is production, 71 is development)
+                    routingKey: transaction.Receiver.Bic, //This relates to the queue name of the receiver bank
+                    basicProperties: properties, //Set the properties to persistent, otherwise the messages will get lost if the server restarts
+                    body: GetBytes(transactionString));
+                }
+                else
+                {
+                    channel.BasicPublish(exchange: "bank.production", //Choose between bank.development and bank.production depending of the queue (e.g. 70 is production, 71 is development)
+                    routingKey: transaction.Sender.Bic, //This relates to the queue name of the receiver bank
+                    basicProperties: properties, //Set the properties to persistent, otherwise the messages will get lost if the server restarts
+                    body: GetBytes(transactionString));
+                }
+
+                // Abbuchen
+
+
+                //channel.BasicPublish(exchange: "bank.production",  //Choose between bank.development and bank.production depending of the queue (e.g. 70 is production, 71 is development)
+                //                    routingKey: transaction.Receiver.Bic,   //This relates to the queue name of the receiver bank
+                //                    basicProperties: properties,    //Set the properties to persistent, otherwise the messages will get lost if the server restarts
+                //                    body: GetBytes(transactionString));
+
+                // Console.WriteLine("[x] Message Sent");
+            }
+
+            // Console.WriteLine(" Press [enter] to exit send.");
+            // Console.ReadLine();
+        }
+
+        public void receive()
+        {
+            var factory = new ConnectionFactory();
+            factory.Uri = "amqp://user80:User80ITS2016!@rabbit.binna.eu/";
+
+            using (var connection = factory.CreateConnection())
+            {
+                using (var channel = connection.CreateModel())
+                {
+                    channel.QueueDeclare(queue: "80",
+                                 durable: true, //Always use durable: true, because the queue on the server is configured this way. Otherwise you'll not be able to connect
+                                 exclusive: false,
+                                 autoDelete: false,
+                                 arguments: null);
+
+                    var consumer = new EventingBasicConsumer(channel);
+
+                    consumer.Received += (model, ea) =>
+                    {
+                        var body = GetString(ea.Body);
+                        var transaction = JsonConvert.DeserializeObject<Transaction>(body);
+                        
+                        // bei keinen errorcode abheben ansonsten einzahlen
+                        // Anfrage von anderer Bank
+                        if(transaction.Errorcode == 0 && transaction.IsResponding == false)
+                        {
+                            double amount = transaction.Amount;
+                            string zielKontonummer = transaction.Receiver.Iban;
+                            string purpose = transaction.Purpose;
+
+                            if (transaction.Currency != ECurrency.Euro)
+                            {
+                                if(transaction.Currency == ECurrency.Dollar)
+                                {
+                                    amount = transaction.Amount * 1.1070;
+                                }
+                                else if(transaction.Currency == ECurrency.Pound)
+                                {
+                                    amount = transaction.Amount * 0.8889;
+                                }
+                            }
+                            else
+                            {
+                                amount = transaction.Amount;
+                            }
+
+                            // Kontonummer validieren - ob vorhanden
+                            if ((getAccType(zielKontonummer) == 1) || (getAccType(zielKontonummer) == 0))
+                            {
+                                IntPtr account = readKreditKonto(zielKontonummer);
+
+                                if(amount > 0)
+                                {
+                                    doEinzahlen(account, purpose, amount);
+
+                                    // Response
+                                    Transaction transactionError2 = new Transaction(transaction.Sender.Iban, transaction.Sender.Bic, transaction.Receiver.Iban, transaction.Receiver.Bic, transaction.Amount, transaction.Currency, transaction.Purpose, true, 0);
+                                    send(transactionError2);
+                                }
+                                else
+                                {
+                                    // Berechtigung checken ?
+                                    amount = amount * -1;
+
+                                    Transaction transactionError1 = new Transaction(transaction.Sender.Iban, transaction.Sender.Bic, transaction.Receiver.Iban, transaction.Receiver.Bic, transaction.Amount, transaction.Currency, transaction.Purpose, true, -6);
+                                    send(transactionError1);
+                                } 
+                            }
+                            else
+                            {
+                                // Konto nicht vorhanden - zurücksenden mit Fehlercode
+                                Transaction transactionError = new Transaction(transaction.Sender.Iban, transaction.Sender.Bic, transaction.Receiver.Iban, transaction.Receiver.Bic, transaction.Amount, transaction.Currency, transaction.Purpose, true, -2);
+                                send(transactionError);
+                            } 
+                        }
+                        // unnötig?
+                        else if(transaction.Errorcode != 0 && transaction.IsResponding == false)
+                        {
+                            // string zielKontonummer = transaction.Sender.Iban;
+                            // string purpose = "Fehler bei Transaktion";
+                            // double amount = transaction.Amount;
+
+                            // Einzahlen
+                            // IntPtr account = readKreditKonto(zielKontonummer);
+                            // doEinzahlen(account, purpose, amount);
+                        }
+                        // Responses
+                        // unnötig
+                        else if(transaction.Errorcode == 0 && transaction.IsResponding == true)
+                        {
+                            Console.WriteLine("Transaktion erfolgreich");
+
+                            // Bei negativen Amount - wenn kein Fehler -> einzahlen
+                            if(transaction.Amount < 0)
+                            {
+                                string zielKontonummer = transaction.Sender.Iban;
+                                string purpose = transaction.Purpose;
+                                double amount = transaction.Amount * -1;
+
+                                IntPtr account = readKreditKonto(zielKontonummer);
+                                doEinzahlen(account, purpose, amount);
+                            }
+                        }
+                        else if(transaction.Errorcode != 0 && transaction.IsResponding == true)
+                        {
+                            // Fehler zurückbekommen -> Kunde bekommt sein geld wieder (Sender ist unser Kunde)
+                            string zielKontonummer = transaction.Sender.Iban;
+                            string purpose = "Fehler bei Transaktion";
+                            double amount = transaction.Amount;
+
+                            // Einzahlen
+                            IntPtr account = readKreditKonto(zielKontonummer);
+                            doEinzahlen(account, purpose, amount);
+                        }
+
+                        channel.BasicAck(deliveryTag: ea.DeliveryTag, multiple: false); //Important. When the message get's not acknowledged, it gets sent again
+
+                    //    Console.WriteLine("[x] Received:");
+                        PrintTransaction(transaction);
+                    };
+
+                    channel.BasicConsume(queue: "80",
+                                         noAck: false,  //If noAck: false the command channel.BasicAck (see above) has to be implemented. Don't set it true, or the message will not get resubmitted, if the bank was offline
+                                         consumer: consumer);
+
+                    // Console.WriteLine(" Press [enter] to exit receive.");
+                    // Console.ReadLine();
+
+                    Thread.Sleep(2000);
+                }
+            }
+        }
+
+        private static byte[] GetBytes(string str)
+        {
+            byte[] bytes = new byte[str.Length * sizeof(char)];
+            System.Buffer.BlockCopy(str.ToCharArray(), 0, bytes, 0, bytes.Length);
+            return bytes;
+        }
+
+        private static string GetString(byte[] bytes)
+        {
+            char[] chars = new char[bytes.Length / sizeof(char)];
+            System.Buffer.BlockCopy(bytes, 0, chars, 0, bytes.Length);
+            return new string(chars);
+        }
+
+        static void PrintTransaction(Transaction transaction)
+        {
+            Console.WriteLine("Receiver Iban: " + transaction.Receiver.Iban);
+            Console.WriteLine("Receiver Bic : " + transaction.Receiver.Bic);
+            Console.WriteLine("Sender Iban  : " + transaction.Sender.Iban);
+            Console.WriteLine("Sender Bic   : " + transaction.Sender.Bic);
+            Console.WriteLine("Amount       : " + transaction.Amount);
+            Console.WriteLine("Currency     : " + transaction.Currency.ToString());
         }
     }
 }

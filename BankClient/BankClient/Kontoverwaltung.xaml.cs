@@ -110,6 +110,7 @@ namespace BankClient
 
                 //Hier wird die KreditKontonummer in den globalen Veriablen gesetzt
                 global.setAccnumber(Bank.createCreditAccount(_id));
+                global.setAcctype(0);
                 global.setCountAcc(global.getCountAcc()+1);
 
                 //Hinzufügen des neuen KreditKontos in die Listbox
@@ -143,6 +144,7 @@ namespace BankClient
                 //Hier wird die KreditKontonummer in den globalen Veriablen gesetzt
                 global.setAccnumber(Bank.createSavingsAccount(_id));
                 global.setCountAcc(global.getCountAcc() + 1);
+                global.setAcctype(1);
 
                 //Hinzufügen des neuen KreditKontos in die Listbox
                 Button button = new Button();

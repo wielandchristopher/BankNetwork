@@ -45,5 +45,8 @@ namespace Eigene_Bank_DLL_Assembly
 
         // BIC
         int getBankBIC();
+
+        void send(Transaction transaction);
+        void receive();
     }
 }

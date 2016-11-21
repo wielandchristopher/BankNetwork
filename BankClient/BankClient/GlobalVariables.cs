@@ -4,6 +4,7 @@
     {
         static int custID;
         static string Accnumber = "0";
+        static int accType = 0;         // 0 = creditacc, 1 = savingsacc
         static int CountAcc = 0;
         static int CountUser = 0;
         static int CountaddUser = 0;
@@ -25,6 +26,14 @@
         public void setAccnumber(string number)
         {
             Accnumber = number;
+        }
+        public int getAcctype()
+        {
+            return accType;
+        }
+        public void setAcctype(int type)
+        {
+            accType = type;
         }
         public int getCountAcc()
         {
