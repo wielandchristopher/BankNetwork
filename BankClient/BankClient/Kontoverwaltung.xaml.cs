@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using Eigene_Bank_DLL_Assembly;
 using System.Windows.Controls;
 using Newtonsoft.Json.Linq;
@@ -38,7 +39,7 @@ namespace BankClient
 
             int _id = global.getCustID();
             int x = 0;
-                
+
             //for (int i = 0; i != global.getmaxCountAcc(); i++)
             //{
             //    if (Bank.getBankAccountNumber(_id, i + 1) != 0)
@@ -46,7 +47,7 @@ namespace BankClient
             //        x++;
             //        global.setCountAcc(x);
             //    }
-            //}    
+            //}
 
             if (existAccount(_id)) {
 

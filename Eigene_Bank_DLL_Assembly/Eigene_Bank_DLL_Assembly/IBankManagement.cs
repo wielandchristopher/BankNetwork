@@ -17,7 +17,7 @@ namespace Eigene_Bank_DLL_Assembly
 
         // Interface Methoden des Account Managements
         String createSavingsAccount(int _id);
-        String createCreditAccount(int _id);
+        string createCreditAccount(int _id);
         void deleteSavingsAccount(String _sNumber, int _id);
         void deleteCreditAccount(String _cNumber, int _id);
         void depositCreditAcc(String _cNumber, String _usage, double _amount);

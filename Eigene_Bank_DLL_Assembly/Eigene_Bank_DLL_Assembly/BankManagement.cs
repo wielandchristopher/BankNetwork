@@ -67,7 +67,7 @@ namespace Eigene_Bank_DLL_Assembly
         public static extern IntPtr NeueUeberweisung(IntPtr quellkonto, IntPtr zielkonto, double betrag, String verwendungszweck);
 
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
-        public static extern String getKreditKontonummer(IntPtr konto);
+        public static extern IntPtr getKreditKontonummer(IntPtr konto);
 
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
         public static extern String getSparKontonummer(IntPtr konto);
@@ -121,7 +121,7 @@ namespace Eigene_Bank_DLL_Assembly
         public static extern int getBIC();
 
         [DllImport(path, CallingConvention = CallingConvention.Cdecl)]
-        public static extern String getUserKonten(int id);
+        public static extern IntPtr getUserKonten(int id);
 
 
 
@@ -234,11 +234,11 @@ namespace Eigene_Bank_DLL_Assembly
         }
 
         // Methode returned Kontonummer
-        public String createCreditAccount(int _id)
+        public string createCreditAccount(int _id)
         {
             IntPtr customer = readUser(_id);
             IntPtr creditAccount = NeuesKreditkonto(customer);
-            String accountNumber = getKreditKontonummer(creditAccount);
+            string accountNumber = Marshal.PtrToStringAnsi(getKreditKontonummer(creditAccount));
 
             return accountNumber;
         }
@@ -316,8 +316,7 @@ namespace Eigene_Bank_DLL_Assembly
 
         public String getBankAccountNumbers(int _id)
         {
-            
-            String s = getUserKonten(_id);
+            string s = Marshal.PtrToStringAnsi(getUserKonten(_id));
             
             return s;
         }
