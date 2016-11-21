@@ -409,8 +409,9 @@ namespace Eigene_Bank_DLL_Assembly
 
         public double getDepositkontostand(String snumber){
 
-            IntPtr depositAcc = readSparKonto(snumber);           
-            return getSparkontostand(depositAcc);
+            IntPtr depositAcc = readSparKonto(snumber);
+            double amount = getSparkontostand(depositAcc);       
+            return amount;
         }
 
         public double getCreditkontostand(String cnumber)
@@ -482,29 +483,12 @@ namespace Eigene_Bank_DLL_Assembly
             {
                 return false;
             }
-            //if (s.Length > 2)
-            //{
-
-         
-            //    JArray newArr = JArray.Parse(s);
-
-            //    foreach(JObject item in newArr.Children())
-            //    {
-
-            //        if (item.GetValue("Kontonr").ToString().Equals(ktnr))
-            //        {
-            //            return true;
-            //        }
-            //    }
-            //}
-            // todog
-
-            // return false;
         }
 
         // RabbitMQ
         public void send(Transaction transaction)
         {
+            Console.WriteLine("test");
             var factory = new ConnectionFactory();
             factory.Uri = "amqp://user80:User80ITS2016!@rabbit.binna.eu/";  //Insert your own user and password
 
@@ -701,6 +685,37 @@ namespace Eigene_Bank_DLL_Assembly
             Console.WriteLine("Sender Bic   : " + transaction.Sender.Bic);
             Console.WriteLine("Amount       : " + transaction.Amount);
             Console.WriteLine("Currency     : " + transaction.Currency.ToString());
+            //Console.WriteLine("Purpose      : " + transaction.Purpose);
+
+            //JObject o2;
+            //// read JSON directly from a file
+            //using (StreamReader file = File.OpenText("banktransactions.json"))
+            //using(JsonTextReader reader = new JsonTextReader(file))
+            //{
+            //    o2 = (JObject)JToken.ReadFrom(reader);
+            //    }
+
+            
+            //JArray arr = (JArray)o2.GetValue("transactions");
+            
+            //JObject obj = new JObject();
+            
+            //obj.Add("Receiver Iban: " + transaction.Receiver.Iban);
+            //obj.Add("Receiver Bic : " + transaction.Receiver.Bic);
+            //obj.Add("Sender Iban  : " + transaction.Sender.Iban);
+            //obj.Add("Sender Bic   : " + transaction.Sender.Bic);
+            //obj.Add("Amount       : " + transaction.Amount);
+            //obj.Add("Currency     : " + transaction.Currency.ToString());
+            //obj.Add("Purpose      : " + transaction.Purpose);
+            //arr.Add(obj);
+
+            //JObject saveobj = new JObject();
+            //saveobj.Add("transactions", arr);
+
+            //StreamWriter wr = new StreamWriter("transactions.json");
+            //wr.Write(saveobj.ToString());
+            //wr.Close();
+
         }
-    }
+    }    
 }

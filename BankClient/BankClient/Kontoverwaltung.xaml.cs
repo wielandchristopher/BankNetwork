@@ -43,7 +43,7 @@ namespace BankClient
                         ListBoxItem item = new ListBoxItem();
                         item.Tag = Kontonummer;
                         item.FontSize = 24;
-                        item.Content = "Kreditkonto: \t\t\t\t\t\t\t\t            " + Kontonummer;
+                        item.Content = "Kreditkonto: \t\t\t\t\t\t\t            " + Kontonummer;
                         item.Selected += new RoutedEventHandler(CreditAccountsettings);
                         listBox.Items.Add(item);
                     }
@@ -52,7 +52,7 @@ namespace BankClient
                         ListBoxItem item = new ListBoxItem();
                         item.Tag = Kontonummer;
                         item.FontSize = 24;
-                        item.Content = "Sparkonto: \t\t\t\t\t\t\t\t            " + Kontonummer;
+                        item.Content = "Sparkonto: \t\t\t\t\t\t\t            " + Kontonummer;
                         item.Selected += new RoutedEventHandler(DepositAccountsettings);
                         listBox.Items.Add(item);
                     }
