@@ -1,0 +1,10 @@
+{
+	"kreditkonten":	[{
+			"Kontonummer":	"40000000003",
+			"Kontostand":	0,
+			"Waehrung":	0,
+			"Verfueger":	[{
+					"VerfuegerId":	1
+				}]
+		}]
+}

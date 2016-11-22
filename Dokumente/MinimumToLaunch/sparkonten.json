@@ -1,0 +1,10 @@
+{
+	"sparkonten":	[{
+			"Kontonummer":	"10000000006",
+			"Kontostand":	0,
+			"Waehrung":	0,
+			"Verfueger":	[{
+					"VerfuegerId":	1
+				}]
+		}]
+}

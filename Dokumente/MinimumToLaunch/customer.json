@@ -1,0 +1,16 @@
+{
+	"users":	[{
+			"vorname":	"Martin",
+			"nachname":	"Wieser",
+			"id":	1,
+			"geb":	"11101991",
+			"addr":	"test 145",
+			"ort":	"5550 test",
+			"tel":	"465645",
+			"Konten":	[{
+					"Kontonr":	"40000000003"
+				}, {
+					"Kontonr":	"10000000006"
+				}]
+		}]
+}
